@@ -33,6 +33,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#pricing" className="hover:text-foreground transition-colors">
+                  Цены
+                </a>
+              </li>
+              <li>
                 <a href="#contact" className="hover:text-foreground transition-colors">
                   Контакты
                 </a>
