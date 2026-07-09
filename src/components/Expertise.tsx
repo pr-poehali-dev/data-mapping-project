@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import { Home, Building, Armchair, Trees } from "lucide-react"
+import { Link } from "react-router-dom"
+import { Home, Building, Armchair, Trees, ArrowUpRight } from "lucide-react"
 import { HighlightedText } from "./HighlightedText"
 
 const expertiseAreas = [
@@ -7,24 +8,28 @@ const expertiseAreas = [
     title: "Архитектура частных домов",
     description: "Проектируем частные дома под ключ: от эскизной концепции и рабочей документации до авторского надзора за строительством.",
     icon: Home,
+    href: "/architecture",
   },
   {
     title: "Дизайн интерьеров",
     description:
       "Создаём интерьеры, которые отражают ваш характер. Разрабатываем дизайн-проект с подбором материалов, мебели и авторским надзором.",
     icon: Armchair,
+    href: "/interior",
   },
   {
     title: "Ландшафтный дизайн",
     description:
       "Проектируем сады, террасы и участки: зонирование, растения, дорожки, освещение и малые архитектурные формы в едином стиле.",
     icon: Trees,
+    href: "/landscape",
   },
   {
     title: "Проект под ключ",
     description:
       "Берём на себя все этапы — от идеи до сдачи. Архитектура, интерьер и ландшафт в едином ансамбле без лишних согласований с вашей стороны.",
     icon: Building,
+    href: "#contact",
   },
 ]
 
@@ -94,7 +99,24 @@ export function Expertise() {
                   <Icon className="w-10 h-10 mb-4 text-foreground" strokeWidth={1.25} />
                 </div>
                 <h3 className="text-xl font-medium mb-4">{area.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{area.description}</p>
+                <p className="text-muted-foreground leading-relaxed mb-5">{area.description}</p>
+                {area.href.startsWith("/") ? (
+                  <Link
+                    to={area.href}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-[rgb(251,146,60)] transition-colors group/link"
+                  >
+                    Подробнее
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                  </Link>
+                ) : (
+                  <a
+                    href={area.href}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-[rgb(251,146,60)] transition-colors group/link"
+                  >
+                    Обсудить проект
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                  </a>
+                )}
               </div>
             )
           })}

@@ -13,33 +13,28 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Navigation */}
+          {/* Directions */}
           <div>
-            <h4 className="text-sm font-medium mb-4">Бюро</h4>
+            <h4 className="text-sm font-medium mb-4">Направления</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <a href="#projects" className="hover:text-foreground transition-colors">
-                  Проекты
+                <a href="/architecture" className="hover:text-foreground transition-colors">
+                  Архитектура домов
                 </a>
               </li>
               <li>
-                <a href="#about" className="hover:text-foreground transition-colors">
-                  О нас
+                <a href="/interior" className="hover:text-foreground transition-colors">
+                  Дизайн интерьеров
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-foreground transition-colors">
-                  Услуги
+                <a href="/landscape" className="hover:text-foreground transition-colors">
+                  Ландшафтный дизайн
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-foreground transition-colors">
+                <a href="/#pricing" className="hover:text-foreground transition-colors">
                   Цены
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-foreground transition-colors">
-                  Контакты
                 </a>
               </li>
             </ul>
