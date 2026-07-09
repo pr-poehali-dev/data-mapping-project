@@ -21,10 +21,10 @@ const pricingSections = [
     title: "Дизайн интерьеров",
     icon: "Armchair",
     color: "bg-amber-50",
-    pricePerM2: 1500,
+    pricePerM2: 5000,
     items: [
       { name: "Концепция интерьера (стиль, колористика, зонирование)", price: "от 500 ₽/м²" },
-      { name: "Полный дизайн-проект (чертежи + спецификации)", price: "от 1 500 ₽/м²" },
+      { name: "Полный дизайн-проект (чертежи + спецификации)", price: "от 5 000 ₽/м²" },
       { name: "Подбор мебели, материалов и декора", price: "от 300 ₽/м²" },
       { name: "Авторский надзор за отделкой", price: "от 10 000 ₽/выезд" },
     ],
@@ -46,7 +46,7 @@ const pricingSections = [
 
 const serviceOptions = [
   { id: "architecture", label: "Архитектура дома", pricePerM2: 800 },
-  { id: "interior", label: "Дизайн интерьера", pricePerM2: 1500 },
+  { id: "interior", label: "Дизайн интерьера", pricePerM2: 5000 },
   { id: "landscape", label: "Ландшафтный дизайн", pricePerM2: 300 },
 ]
 
