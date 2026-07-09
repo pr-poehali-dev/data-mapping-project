@@ -1,6 +1,7 @@
 import { DirectionPage, DirectionData } from "../components/DirectionPage"
 
 const data: DirectionData = {
+  portfolioType: "landscape",
   eyebrow: "Направление",
   title: "Ландшафтный",
   highlight: "дизайн",

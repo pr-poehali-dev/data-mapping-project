@@ -42,7 +42,7 @@ export function Header() {
           {[
             { label: "Главная", href: "/#hero" },
             { label: "Философия", href: "/#about" },
-            { label: "Проекты", href: "/#projects" },
+            { label: "Портфолио", href: "/portfolio" },
             { label: "Услуги", href: "/#services" },
             { label: "Цены", href: "/#pricing" },
             { label: "Вопросы", href: "/#faq" },
@@ -100,7 +100,7 @@ export function Header() {
             {[
               { label: "Главная", href: "/#hero" },
               { label: "Философия", href: "/#about" },
-              { label: "Проекты", href: "/#projects" },
+              { label: "Портфолио", href: "/portfolio" },
               { label: "Услуги", href: "/#services" },
               { label: "Цены", href: "/#pricing" },
               { label: "Вопросы", href: "/#faq" },

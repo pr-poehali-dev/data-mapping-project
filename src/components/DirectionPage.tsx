@@ -16,6 +16,7 @@ export interface DirectionData {
   services: { name: string; price: string }[]
   process: { step: string; title: string; description: string }[]
   works: { title: string; location: string; year: string; image: string }[]
+  portfolioType?: "architecture" | "interior" | "landscape"
 }
 
 export function DirectionPage({ data }: { data: DirectionData }) {
@@ -118,9 +119,22 @@ export function DirectionPage({ data }: { data: DirectionData }) {
       {/* Works */}
       <section className="py-24 md:py-32">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="max-w-2xl mb-16">
-            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Портфолио</p>
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight">Наши работы</h2>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+            <div className="max-w-2xl">
+              <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Портфолио</p>
+              <h2 className="text-4xl md:text-5xl font-medium tracking-tight">Наши работы</h2>
+            </div>
+            <Link
+              to={data.portfolioType ? `/portfolio?type=${data.portfolioType}` : "/portfolio"}
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
+            >
+              Все реализованные проекты
+              <Icon
+                name="ArrowUpRight"
+                size={16}
+                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </Link>
           </div>
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {data.works.map((w) => (
