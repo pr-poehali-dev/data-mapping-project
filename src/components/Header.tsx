@@ -34,9 +34,7 @@ export function Header() {
       )}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between md:px-[24]">
-        <a href="/" className="flex items-center gap-2 group" onClick={scrollToTop}>
-          <span className="text-white font-medium tracking-widest text-sm uppercase">ДОМ ПРОЕКТОВ</span>
-        </a>
+        <a href="/" className="flex items-center gap-2 group" onClick={scrollToTop} aria-label="На главную" />
 
         <ul className="hidden md:flex items-center gap-10 text-sm tracking-wide">
           {[
