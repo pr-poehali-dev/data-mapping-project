@@ -136,7 +136,7 @@ export function Hero() {
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="mb-72 md:mb-60 lg:mb-80">
+        <div className="mt-24 md:mt-20 mb-72 md:mb-60 lg:mb-80">
           <p className="text-sm tracking-[0.3em] uppercase text-center text-secondary mb-0">{"Архитектурное бюро"}</p>
 
           <h1
