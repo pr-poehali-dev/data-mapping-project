@@ -10,6 +10,7 @@ export interface PortfolioProject {
   area: string
   duration: string
   image: string
+  gallery?: string[]
   description: string
   scope: string[]
 }
@@ -22,6 +23,27 @@ export const portfolioFilters: { id: PortfolioType | "all"; label: string }[] = 
 ]
 
 export const portfolioProjects: PortfolioProject[] = [
+  {
+    id: 9,
+    title: "Дом в КП «Палникс»",
+    type: "architecture",
+    category: "Архитектура дома",
+    location: "Екатеринбург",
+    year: "2024",
+    area: "700 м²",
+    duration: "20 месяцев",
+    image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6c46d1b2-4ef9-4220-9f2a-f2b8769f7675.jpg",
+    gallery: [
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6c46d1b2-4ef9-4220-9f2a-f2b8769f7675.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/7c0b7be0-2285-41d9-a5f7-32488bd4b18f.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/0009aff2-cfd4-4eb7-be10-7115a348536b.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/24fe8df2-492f-4b0d-8361-9e8959cee421.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/fc91fb0a-e0de-4cde-b75c-bbe9b20ccfe5.jpg",
+    ],
+    description:
+      "Двухэтажный частный дом площадью 700 м² в коттеджном посёлке «Палникс» в Екатеринбурге. Современная архитектура с выразительной кровлей, сочетанием тёмного фасада, дерева и натурального камня. Просторный навес для авто, панорамное остекление и продуманная ландшафтная зона с патио и барбекю.",
+    scope: ["Эскизный проект", "Рабочая документация", "3D-визуализация", "Ландшафт участка", "Авторский надзор"],
+  },
   {
     id: 1,
     title: "Резиденция в сосновом лесу",

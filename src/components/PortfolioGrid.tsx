@@ -84,6 +84,24 @@ export function PortfolioGrid({ projects }: { projects: PortfolioProject[] }) {
                     </span>
                   ))}
                 </div>
+
+                {active.gallery && active.gallery.length > 1 && (
+                  <>
+                    <p className="text-muted-foreground text-xs uppercase tracking-wide mt-8 mb-3">Галерея</p>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                      {active.gallery.map((src, i) => (
+                        <div key={i} className="aspect-[4/3] overflow-hidden">
+                          <img
+                            src={src}
+                            alt={`${active.title} — фото ${i + 1}`}
+                            loading="lazy"
+                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
             </>
           )}
