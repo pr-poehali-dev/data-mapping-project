@@ -1,10 +1,38 @@
-import { useState } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { Dialog, DialogContent, DialogTitle } from "./ui/dialog"
 import Icon from "./ui/icon"
 import { PortfolioProject } from "../data/portfolio"
 
 export function PortfolioGrid({ projects }: { projects: PortfolioProject[] }) {
   const [active, setActive] = useState<PortfolioProject | null>(null)
+  const [lightbox, setLightbox] = useState<number | null>(null)
+
+  const images = active
+    ? active.gallery && active.gallery.length > 0
+      ? active.gallery
+      : [active.image]
+    : []
+
+  const close = useCallback(() => setLightbox(null), [])
+  const prev = useCallback(
+    () => setLightbox((i) => (i === null ? i : (i - 1 + images.length) % images.length)),
+    [images.length],
+  )
+  const next = useCallback(
+    () => setLightbox((i) => (i === null ? i : (i + 1) % images.length)),
+    [images.length],
+  )
+
+  useEffect(() => {
+    if (lightbox === null) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close()
+      if (e.key === "ArrowLeft") prev()
+      if (e.key === "ArrowRight") next()
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [lightbox, close, prev, next])
 
   return (
     <>
@@ -47,8 +75,16 @@ export function PortfolioGrid({ projects }: { projects: PortfolioProject[] }) {
         <DialogContent className="max-w-3xl p-0 overflow-hidden gap-0 max-h-[90vh] overflow-y-auto">
           {active && (
             <>
-              <div className="relative aspect-[16/9] overflow-hidden">
+              <div
+                className="relative aspect-[16/9] overflow-hidden cursor-zoom-in group/main"
+                onClick={() => setLightbox(images.indexOf(active.image) >= 0 ? images.indexOf(active.image) : 0)}
+              >
                 <img src={active.image} alt={active.title} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 flex items-center justify-center bg-foreground/0 group-hover/main:bg-foreground/20 transition-colors">
+                  <span className="opacity-0 group-hover/main:opacity-100 transition-opacity bg-background/90 backdrop-blur rounded-full p-2.5">
+                    <Icon name="Expand" size={18} />
+                  </span>
+                </div>
               </div>
               <div className="p-6 md:p-8">
                 <p className="text-muted-foreground text-sm tracking-[0.2em] uppercase mb-3">{active.category}</p>
@@ -90,7 +126,11 @@ export function PortfolioGrid({ projects }: { projects: PortfolioProject[] }) {
                     <p className="text-muted-foreground text-xs uppercase tracking-wide mt-8 mb-3">Галерея</p>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                       {active.gallery.map((src, i) => (
-                        <div key={i} className="aspect-[4/3] overflow-hidden">
+                        <div
+                          key={i}
+                          className="aspect-[4/3] overflow-hidden cursor-zoom-in"
+                          onClick={() => setLightbox(images.indexOf(src) >= 0 ? images.indexOf(src) : i)}
+                        >
                           <img
                             src={src}
                             alt={`${active.title} — фото ${i + 1}`}
@@ -107,6 +147,53 @@ export function PortfolioGrid({ projects }: { projects: PortfolioProject[] }) {
           )}
         </DialogContent>
       </Dialog>
+
+      {lightbox !== null && images[lightbox] && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center animate-in fade-in"
+          onClick={close}
+        >
+          <button
+            onClick={close}
+            className="absolute top-4 right-4 md:top-6 md:right-6 text-white/80 hover:text-white p-2 z-10"
+            aria-label="Закрыть"
+          >
+            <Icon name="X" size={28} />
+          </button>
+
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={(e) => { e.stopPropagation(); prev() }}
+                className="absolute left-2 md:left-6 text-white/70 hover:text-white p-2 md:p-3 z-10"
+                aria-label="Предыдущее"
+              >
+                <Icon name="ChevronLeft" size={36} />
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); next() }}
+                className="absolute right-2 md:right-6 text-white/70 hover:text-white p-2 md:p-3 z-10"
+                aria-label="Следующее"
+              >
+                <Icon name="ChevronRight" size={36} />
+              </button>
+            </>
+          )}
+
+          <img
+            src={images[lightbox]}
+            alt=""
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-[92vw] max-h-[88vh] object-contain select-none"
+          />
+
+          {images.length > 1 && (
+            <span className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/80 text-sm tracking-wide">
+              {lightbox + 1} / {images.length}
+            </span>
+          )}
+        </div>
+      )}
     </>
   )
 }
