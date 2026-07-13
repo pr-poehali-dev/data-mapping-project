@@ -24,19 +24,22 @@ export function Lightbox({ images, index, onClose, onIndexChange }: LightboxProp
   useEffect(() => {
     if (index === null) return
     const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" || e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        e.stopPropagation()
+      }
       if (e.key === "Escape") onClose()
       if (e.key === "ArrowLeft") prev()
       if (e.key === "ArrowRight") next()
     }
-    window.addEventListener("keydown", onKey)
-    return () => window.removeEventListener("keydown", onKey)
+    document.addEventListener("keydown", onKey, true)
+    return () => document.removeEventListener("keydown", onKey, true)
   }, [index, onClose, prev, next])
 
   if (index === null || !images[index]) return null
 
   return (
     <div
-      className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center animate-in fade-in"
+      className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center animate-in fade-in"
       onClick={onClose}
       onTouchStart={(e) => (touchStartX.current = e.touches[0].clientX)}
       onTouchEnd={(e) => {
