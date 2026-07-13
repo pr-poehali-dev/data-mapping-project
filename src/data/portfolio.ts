@@ -36,7 +36,6 @@ export const portfolioProjects: PortfolioProject[] = [
     gallery: [
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6c46d1b2-4ef9-4220-9f2a-f2b8769f7675.jpg",
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/7c0b7be0-2285-41d9-a5f7-32488bd4b18f.jpg",
-      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/0009aff2-cfd4-4eb7-be10-7115a348536b.jpg",
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/24fe8df2-492f-4b0d-8361-9e8959cee421.jpg",
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/fc91fb0a-e0de-4cde-b75c-bbe9b20ccfe5.jpg",
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/9d6e8190-a77e-464e-b427-1c254de213fb.jpg",
