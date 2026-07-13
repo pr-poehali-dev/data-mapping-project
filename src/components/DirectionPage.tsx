@@ -1,8 +1,9 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { Header } from "./Header"
 import { Footer } from "./Footer"
 import { HighlightedText } from "./HighlightedText"
+import { Lightbox } from "./Lightbox"
 import Icon from "./ui/icon"
 
 export interface DirectionData {
@@ -15,11 +16,20 @@ export interface DirectionData {
   benefits: { icon: string; title: string; description: string }[]
   services: { name: string; price: string }[]
   process: { step: string; title: string; description: string }[]
-  works: { title: string; location: string; year: string; image: string }[]
+  works: { title: string; location: string; year: string; image: string; gallery?: string[] }[]
   portfolioType?: "architecture" | "interior" | "landscape"
 }
 
 export function DirectionPage({ data }: { data: DirectionData }) {
+  const [lightboxImages, setLightboxImages] = useState<string[]>([])
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+
+  const openWork = (w: DirectionData["works"][number]) => {
+    const imgs = w.gallery && w.gallery.length > 0 ? w.gallery : [w.image]
+    setLightboxImages(imgs)
+    setLightboxIndex(0)
+  }
+
   useEffect(() => {
     window.scrollTo({ top: 0 })
   }, [])
@@ -139,12 +149,26 @@ export function DirectionPage({ data }: { data: DirectionData }) {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {data.works.map((w) => (
               <article key={w.title} className="group">
-                <div className="relative overflow-hidden aspect-[4/3] mb-6">
+                <div
+                  className="relative overflow-hidden aspect-[4/3] mb-6 cursor-zoom-in"
+                  onClick={() => openWork(w)}
+                >
                   <img
                     src={w.image}
                     alt={w.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center bg-foreground/0 group-hover:bg-foreground/20 transition-colors">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-background/90 backdrop-blur rounded-full p-3">
+                      <Icon name="Expand" size={20} />
+                    </span>
+                  </div>
+                  {w.gallery && w.gallery.length > 1 && (
+                    <span className="absolute bottom-3 right-3 flex items-center gap-1.5 bg-background/90 backdrop-blur px-2.5 py-1 text-xs">
+                      <Icon name="Images" size={13} />
+                      {w.gallery.length}
+                    </span>
+                  )}
                 </div>
                 <div className="flex items-start justify-between gap-4">
                   <div>
@@ -181,6 +205,13 @@ export function DirectionPage({ data }: { data: DirectionData }) {
       </section>
 
       <Footer />
+
+      <Lightbox
+        images={lightboxImages}
+        index={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onIndexChange={setLightboxIndex}
+      />
     </main>
   )
 }

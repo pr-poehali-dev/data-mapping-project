@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback } from "react"
+import { useState } from "react"
 import { Dialog, DialogContent, DialogTitle } from "./ui/dialog"
+import { Lightbox } from "./Lightbox"
 import Icon from "./ui/icon"
 import { PortfolioProject } from "../data/portfolio"
 
@@ -12,27 +13,6 @@ export function PortfolioGrid({ projects }: { projects: PortfolioProject[] }) {
       ? active.gallery
       : [active.image]
     : []
-
-  const close = useCallback(() => setLightbox(null), [])
-  const prev = useCallback(
-    () => setLightbox((i) => (i === null ? i : (i - 1 + images.length) % images.length)),
-    [images.length],
-  )
-  const next = useCallback(
-    () => setLightbox((i) => (i === null ? i : (i + 1) % images.length)),
-    [images.length],
-  )
-
-  useEffect(() => {
-    if (lightbox === null) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close()
-      if (e.key === "ArrowLeft") prev()
-      if (e.key === "ArrowRight") next()
-    }
-    window.addEventListener("keydown", onKey)
-    return () => window.removeEventListener("keydown", onKey)
-  }, [lightbox, close, prev, next])
 
   return (
     <>
@@ -148,52 +128,12 @@ export function PortfolioGrid({ projects }: { projects: PortfolioProject[] }) {
         </DialogContent>
       </Dialog>
 
-      {lightbox !== null && images[lightbox] && (
-        <div
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center animate-in fade-in"
-          onClick={close}
-        >
-          <button
-            onClick={close}
-            className="absolute top-4 right-4 md:top-6 md:right-6 text-white/80 hover:text-white p-2 z-10"
-            aria-label="Закрыть"
-          >
-            <Icon name="X" size={28} />
-          </button>
-
-          {images.length > 1 && (
-            <>
-              <button
-                onClick={(e) => { e.stopPropagation(); prev() }}
-                className="absolute left-2 md:left-6 text-white/70 hover:text-white p-2 md:p-3 z-10"
-                aria-label="Предыдущее"
-              >
-                <Icon name="ChevronLeft" size={36} />
-              </button>
-              <button
-                onClick={(e) => { e.stopPropagation(); next() }}
-                className="absolute right-2 md:right-6 text-white/70 hover:text-white p-2 md:p-3 z-10"
-                aria-label="Следующее"
-              >
-                <Icon name="ChevronRight" size={36} />
-              </button>
-            </>
-          )}
-
-          <img
-            src={images[lightbox]}
-            alt=""
-            onClick={(e) => e.stopPropagation()}
-            className="max-w-[92vw] max-h-[88vh] object-contain select-none"
-          />
-
-          {images.length > 1 && (
-            <span className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/80 text-sm tracking-wide">
-              {lightbox + 1} / {images.length}
-            </span>
-          )}
-        </div>
-      )}
+      <Lightbox
+        images={images}
+        index={lightbox}
+        onClose={() => setLightbox(null)}
+        onIndexChange={setLightbox}
+      />
     </>
   )
 }
