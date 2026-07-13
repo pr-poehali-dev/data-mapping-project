@@ -26,6 +26,7 @@ const data: DirectionData = {
     { name: "Визуализация 3D (до 5 видов)", price: "от 30 000 ₽" },
   ],
   works: [
+    { title: "Дом в КП «Палникс»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6c46d1b2-4ef9-4220-9f2a-f2b8769f7675.jpg" },
     { title: "Резиденция в сосновом лесу", location: "Подмосковье", year: "2024", image: "/images/hously-1.png" },
     { title: "Вилла у моря", location: "Сочи", year: "2023", image: "/images/hously-3.png" },
     { title: "Дом с панорамным остеклением", location: "Новая Рига", year: "2024", image: "/images/exterior.png" },
