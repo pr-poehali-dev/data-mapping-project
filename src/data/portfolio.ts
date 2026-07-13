@@ -39,6 +39,11 @@ export const portfolioProjects: PortfolioProject[] = [
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/0009aff2-cfd4-4eb7-be10-7115a348536b.jpg",
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/24fe8df2-492f-4b0d-8361-9e8959cee421.jpg",
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/fc91fb0a-e0de-4cde-b75c-bbe9b20ccfe5.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/9d6e8190-a77e-464e-b427-1c254de213fb.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/c9ebd55e-1911-40ad-841c-fff060a5687f.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/c6efaeba-a2d5-4cec-a6df-44c8c15de605.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/30c52a43-9446-4278-8b7c-f2f03082e8d6.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/4458c4c4-461b-4765-8d8c-21253c17ef60.jpg",
     ],
     description:
       "Двухэтажный частный дом площадью 700 м² в коттеджном посёлке «Палникс» в Екатеринбурге. Современная архитектура с выразительной кровлей, сочетанием тёмного фасада, дерева и натурального камня. Просторный навес для авто, панорамное остекление и продуманная ландшафтная зона с патио и барбекю.",
