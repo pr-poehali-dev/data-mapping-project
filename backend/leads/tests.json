@@ -1,0 +1,20 @@
+{
+  "tests": [
+    {
+      "name": "Создание заявки",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Тест Тестов", "phone": "+7 999 123-45-67", "email": "test@example.com", "message": "Хочу проект дома"},
+      "expectedStatus": 200,
+      "expectedBody": {"success": true},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Ошибка без телефона",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Без телефона"},
+      "expectedStatus": 400
+    }
+  ]
+}

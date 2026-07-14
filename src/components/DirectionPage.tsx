@@ -195,7 +195,7 @@ export function DirectionPage({ data }: { data: DirectionData }) {
             Оставьте заявку — проведём бесплатную консультацию и рассчитаем стоимость под вашу задачу.
           </p>
           <a
-            href="mailto:info@domproektov.ru"
+            href="mailto:d@p-shalamova.ru"
             className="inline-flex items-center justify-center gap-3 bg-primary-foreground text-foreground px-8 py-4 text-sm tracking-wide hover:bg-primary-foreground/90 transition-colors duration-300 group"
           >
             Получить консультацию
