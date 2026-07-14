@@ -51,7 +51,7 @@ export function DirectionPage({ data }: { data: DirectionData }) {
                 Все направления
               </Link>
               <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">{data.eyebrow}</p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.05] tracking-tight mb-8 text-balance">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.05] tracking-tight mb-8 text-balance">
                 {data.title} <HighlightedText>{data.highlight}</HighlightedText>
                 {data.titleTail ? ` ${data.titleTail}` : ""}
               </h1>
@@ -116,7 +116,7 @@ export function DirectionPage({ data }: { data: DirectionData }) {
             {data.services.map((s) => (
               <div
                 key={s.name}
-                className="flex items-center justify-between gap-6 px-6 md:px-8 py-5 border-b border-border last:border-0"
+                className="flex items-center justify-between gap-3 sm:gap-6 px-4 sm:px-6 md:px-8 py-5 border-b border-border last:border-0"
               >
                 <span className="text-sm md:text-base text-foreground leading-snug">{s.name}</span>
                 <span className="text-sm md:text-base font-medium whitespace-nowrap">{s.price}</span>
