@@ -221,6 +221,17 @@ export function Pricing() {
                       <Icon name="Clock" size={15} />
                       Сроки: {tier.duration}
                     </p>
+                    <a
+                      href="#contact"
+                      className={`mt-2 inline-flex w-full items-center justify-center gap-2 px-6 py-3.5 text-sm tracking-wide transition-colors duration-300 group ${
+                        tier.featured
+                          ? "bg-foreground text-primary-foreground hover:bg-foreground/90"
+                          : "border border-foreground hover:bg-foreground hover:text-primary-foreground"
+                      }`}
+                    >
+                      Оставить заявку
+                      <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
+                    </a>
                   </div>
                 </div>
               </div>
