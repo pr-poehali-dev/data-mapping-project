@@ -60,13 +60,17 @@ export function Philosophy() {
               <HighlightedText>душой</HighlightedText>
             </h2>
 
-            <div className="relative hidden lg:block">
+            <figure className="relative mt-8 max-w-xs">
               <img
                 src="https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/236ac188-0220-4c55-907a-9a552627254e.jpg"
-                alt="Архитектор с проектами"
-                className="opacity-90 relative z-10 w-auto"
+                alt="Шаламова Татьяна Александровна — основатель и руководитель бюро"
+                className="opacity-90 relative z-10 w-full h-auto"
               />
-            </div>
+              <figcaption className="mt-4">
+                <p className="text-sm font-medium">Шаламова Татьяна Александровна</p>
+                <p className="text-sm text-muted-foreground mt-1">Основатель и руководитель бюро. Создала бюро в 2013 году.</p>
+              </figcaption>
+            </figure>
           </div>
 
           {/* Right column - Description and Philosophy items */}
