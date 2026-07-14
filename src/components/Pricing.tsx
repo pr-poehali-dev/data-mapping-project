@@ -156,7 +156,7 @@ export function Pricing() {
         {/* Header */}
         <div className="max-w-3xl mb-20">
           <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Стоимость</p>
-          <h2 className="text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
+          <h2 className="text-4xl sm:text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
             <HighlightedText>Прайс</HighlightedText> и
             <br />
             калькулятор
@@ -195,10 +195,10 @@ export function Pricing() {
                       </span>
                     )}
                   </div>
-                  <h4 className="text-xl font-medium mb-3 leading-snug">{tier.title}</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">{tier.subtitle}</p>
+                  <h4 className="text-xl font-medium mb-3 leading-snug hyphens-auto" lang="ru">{tier.title}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 hyphens-auto" lang="ru">{tier.subtitle}</p>
 
-                  <div className="flex items-baseline gap-2 mb-6">
+                  <div className="flex items-baseline flex-wrap gap-x-2 gap-y-1 mb-6">
                     <span className="text-3xl font-medium">{tier.price}</span>
                     <span className="text-muted-foreground text-sm">{tier.priceUnit}</span>
                   </div>
@@ -207,13 +207,13 @@ export function Pricing() {
                     {tier.features.map((f) => (
                       <div key={f} className="flex gap-2.5">
                         <Icon name="Check" size={16} className="text-foreground shrink-0 mt-0.5" />
-                        <span className="text-sm text-muted-foreground leading-snug">{f}</span>
+                        <span className="text-sm text-muted-foreground leading-snug hyphens-auto" lang="ru">{f}</span>
                       </div>
                     ))}
                   </div>
 
                   <div className="mt-auto pt-6 border-t border-border space-y-3">
-                    <p className="text-sm leading-snug">
+                    <p className="text-sm leading-snug hyphens-auto" lang="ru">
                       <span className="font-medium">Для кого: </span>
                       <span className="text-muted-foreground">{tier.forWhom}</span>
                     </p>
@@ -241,8 +241,8 @@ export function Pricing() {
               {supervisionOptions.map((opt) => (
                 <div key={opt.id} className="border border-border p-7 flex flex-col">
                   <p className="text-muted-foreground text-sm mb-1">{opt.subtitle}</p>
-                  <h4 className="text-xl font-medium mb-4">{opt.title}</h4>
-                  <div className="flex items-baseline gap-2 mb-6">
+                  <h4 className="text-xl font-medium mb-4 hyphens-auto" lang="ru">{opt.title}</h4>
+                  <div className="flex items-baseline flex-wrap gap-x-2 gap-y-1 mb-6">
                     <span className="text-3xl font-medium">{opt.price}</span>
                     <span className="text-muted-foreground text-sm">{opt.priceUnit}</span>
                   </div>
@@ -250,11 +250,11 @@ export function Pricing() {
                     {opt.features.map((f) => (
                       <div key={f} className="flex gap-2.5">
                         <Icon name="Check" size={16} className="text-foreground shrink-0 mt-0.5" />
-                        <span className="text-sm text-muted-foreground leading-snug">{f}</span>
+                        <span className="text-sm text-muted-foreground leading-snug hyphens-auto" lang="ru">{f}</span>
                       </div>
                     ))}
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mt-auto pt-6 border-t border-border">
+                  <p className="text-sm text-muted-foreground leading-relaxed mt-auto pt-6 border-t border-border hyphens-auto" lang="ru">
                     {opt.note}
                   </p>
                 </div>
@@ -289,7 +289,7 @@ export function Pricing() {
         </div>
 
         {/* Calculator */}
-        <div className="bg-foreground text-primary-foreground p-10 md:p-16">
+        <div className="bg-foreground text-primary-foreground p-6 sm:p-10 md:p-16">
           <div className="max-w-4xl mx-auto">
             <p className="text-primary-foreground/60 text-sm tracking-[0.3em] uppercase mb-4">Калькулятор</p>
             <h3 className="text-3xl md:text-4xl font-medium mb-12 tracking-tight">Рассчитайте стоимость проекта</h3>
@@ -326,14 +326,14 @@ export function Pricing() {
                       <button
                         key={s.id}
                         onClick={() => toggleService(s.id)}
-                        className={`flex items-center justify-between px-5 py-4 border transition-all duration-200 text-left ${
+                        className={`flex items-center justify-between gap-3 px-5 py-4 border transition-all duration-200 text-left ${
                           selectedServices.includes(s.id)
                             ? "border-orange-400 bg-orange-400/10"
                             : "border-primary-foreground/20 hover:border-primary-foreground/40"
                         }`}
                       >
                         <span className="text-sm">{s.label}</span>
-                        <span className="text-xs text-primary-foreground/50">
+                        <span className="text-xs text-primary-foreground/50 whitespace-nowrap">
                           {formatPrice(s.pricePerM2 * area)}
                         </span>
                       </button>
@@ -343,12 +343,12 @@ export function Pricing() {
               </div>
 
               {/* Right: result */}
-              <div className="flex flex-col justify-between border-l border-primary-foreground/10 pl-12">
+              <div className="flex flex-col justify-between md:border-l border-primary-foreground/10 md:pl-12 pt-10 border-t md:border-t-0 md:pt-0">
                 <div>
                   <p className="text-sm text-primary-foreground/60 mb-2">Итоговая стоимость</p>
-                  <div className="text-5xl md:text-6xl font-medium tracking-tight mb-2">
+                  <div className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight mb-2 break-words">
                     {selectedServices.length === 0 ? (
-                      <span className="text-primary-foreground/30 text-3xl">Выберите услуги</span>
+                      <span className="text-primary-foreground/30 text-2xl sm:text-3xl">Выберите услуги</span>
                     ) : (
                       formatPrice(totalPrice)
                     )}
