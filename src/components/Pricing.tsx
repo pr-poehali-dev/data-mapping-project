@@ -77,7 +77,7 @@ const interiorTiers = [
     tag: "Вариант 3",
     title: "Интерактивный проект «Спринт»",
     subtitle: "Инновационный подход к дизайну. Мы сокращаем бюрократические этапы, чтобы вы могли начать ремонт максимально быстро.",
-    price: "1 900 ₽",
+    price: "1 600 ₽",
     priceUnit: "/ м² в месяц",
     image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/72a2f549-5456-4c8c-a45b-fc74f062c37b.jpg",
     features: [
@@ -199,7 +199,7 @@ export function Pricing() {
                   <p className="text-muted-foreground text-sm leading-relaxed mb-6 hyphens-auto" lang="ru">{tier.subtitle}</p>
 
                   <div className="flex items-baseline flex-wrap gap-x-2 gap-y-1 mb-6">
-                    <span className="text-3xl font-medium">{tier.price}</span>
+                    <span className="text-3xl font-medium">{tier.price}<span className="align-super text-base">*</span></span>
                     <span className="text-muted-foreground text-sm">{tier.priceUnit}</span>
                   </div>
 
@@ -237,6 +237,10 @@ export function Pricing() {
               </div>
             ))}
           </div>
+
+          <p className="text-sm text-muted-foreground leading-relaxed mt-6 max-w-3xl">
+            <span className="align-super text-xs">*</span> Указана базовая стоимость за м². К итоговой цене применяется понижающий коэффициент — чем больше площадь проекта, тем ниже стоимость за квадратный метр.
+          </p>
 
           {/* Supervision add-ons */}
           <div className="mt-14">
