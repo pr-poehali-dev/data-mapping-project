@@ -184,19 +184,17 @@ export function Pricing() {
                   tier.featured ? "border-foreground" : "border-border"
                 }`}
               >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img src={tier.image} alt={tier.title} className="w-full h-full object-cover" />
-                  <span className="absolute top-4 left-4 bg-background/90 backdrop-blur px-3 py-1 text-xs tracking-wide">
-                    {tier.tag}
-                  </span>
-                  {tier.featured && (
-                    <span className="absolute top-4 right-4 bg-foreground text-primary-foreground px-3 py-1 text-xs tracking-wide">
-                      Популярный
-                    </span>
-                  )}
-                </div>
-
                 <div className="p-7 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-xs tracking-wide text-muted-foreground border border-border px-2.5 py-1">
+                      {tier.tag}
+                    </span>
+                    {tier.featured && (
+                      <span className="text-xs tracking-wide bg-foreground text-primary-foreground px-2.5 py-1">
+                        Популярный
+                      </span>
+                    )}
+                  </div>
                   <h4 className="text-xl font-medium mb-3 leading-snug">{tier.title}</h4>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-6">{tier.subtitle}</p>
 
