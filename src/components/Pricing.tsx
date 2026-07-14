@@ -272,6 +272,13 @@ export function Pricing() {
                   <p className="text-sm text-muted-foreground leading-relaxed mt-auto pt-6 border-t border-border hyphens-auto" lang="ru">
                     {opt.note}
                   </p>
+                  <a
+                    href="#contact"
+                    className="mt-5 inline-flex w-full items-center justify-center gap-2 border border-foreground px-6 py-3.5 text-sm tracking-wide transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground group"
+                  >
+                    Оставить заявку
+                    <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
+                  </a>
                 </div>
               ))}
             </div>
@@ -298,6 +305,13 @@ export function Pricing() {
                     <span className="text-sm font-medium whitespace-nowrap">{item.price}</span>
                   </div>
                 ))}
+                <a
+                  href="#contact"
+                  className="mt-2 inline-flex w-full items-center justify-center gap-2 border border-foreground px-6 py-3.5 text-sm tracking-wide transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground group"
+                >
+                  Оставить заявку
+                  <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
+                </a>
               </div>
             </div>
           ))}
