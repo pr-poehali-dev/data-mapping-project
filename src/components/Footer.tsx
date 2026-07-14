@@ -55,18 +55,23 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:+74951234567" className="hover:text-foreground transition-colors">
-                  +7 (495) 123-45-67
+                <a href="tel:+79220299901" className="hover:text-foreground transition-colors">
+                  +7 922 029-99-01
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Телеграм
+                <a href="https://t.me/+79220299901" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+                  Telegram
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  ВКонтакте
+                <a href="https://max.ru/u/79220299901" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+                  MAX
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/dom_proektov?igsh=MXI2OWR3bjh0c25lOA==" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+                  Instagram
                 </a>
               </li>
             </ul>

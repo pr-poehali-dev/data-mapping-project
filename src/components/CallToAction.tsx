@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Phone, Send, MessageCircle, Instagram } from "lucide-react"
 import { HighlightedText } from "./HighlightedText"
 import { toast } from "sonner"
 import func2url from "../../backend/func2url.json"
@@ -97,6 +97,43 @@ export function CallToAction() {
               {!loading && <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />}
             </button>
           </form>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="tel:+79220299901"
+              className="inline-flex items-center gap-2.5 border border-primary-foreground/25 px-5 py-3 text-sm hover:bg-primary-foreground hover:text-foreground transition-colors duration-300"
+            >
+              <Phone className="w-4 h-4" />
+              +7 922 029-99-01
+            </a>
+            <a
+              href="https://t.me/+79220299901"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 border border-primary-foreground/25 px-5 py-3 text-sm hover:bg-primary-foreground hover:text-foreground transition-colors duration-300"
+            >
+              <Send className="w-4 h-4" />
+              Telegram
+            </a>
+            <a
+              href="https://max.ru/u/79220299901"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 border border-primary-foreground/25 px-5 py-3 text-sm hover:bg-primary-foreground hover:text-foreground transition-colors duration-300"
+            >
+              <MessageCircle className="w-4 h-4" />
+              MAX
+            </a>
+            <a
+              href="https://www.instagram.com/dom_proektov?igsh=MXI2OWR3bjh0c25lOA=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 border border-primary-foreground/25 px-5 py-3 text-sm hover:bg-primary-foreground hover:text-foreground transition-colors duration-300"
+            >
+              <Instagram className="w-4 h-4" />
+              Instagram
+            </a>
+          </div>
 
           <p className="text-primary-foreground/50 text-sm mt-10">
             Или напишите нам:{" "}
