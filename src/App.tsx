@@ -9,6 +9,7 @@ import Architecture from "./pages/Architecture";
 import Interior from "./pages/Interior";
 import Landscape from "./pages/Landscape";
 import Portfolio from "./pages/Portfolio";
+import Project from "./pages/Project";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/interior" element={<Interior />} />
           <Route path="/landscape" element={<Landscape />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfolio/:id" element={<Project />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
