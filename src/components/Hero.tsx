@@ -18,7 +18,7 @@ export function Hero() {
 
   const applyTransform = (newProgress: number) => {
     if (contentRef.current) {
-      const baseOffset = window.innerWidth >= 768 ? -80 : -64
+      const baseOffset = window.innerWidth >= 768 ? -40 : -32
       const translateY = baseOffset + newProgress * 200
       const rotationX = newProgress * 45
       const scale = 1 - newProgress * 0.3
@@ -176,7 +176,7 @@ export function Hero() {
       {/* Title */}
       <div
         ref={contentRef}
-        className="container mx-auto px-6 md:px-12 relative z-10 pointer-events-none -translate-y-16 md:-translate-y-20"
+        className="container mx-auto px-6 md:px-12 relative z-10 pointer-events-none -translate-y-8 md:-translate-y-10"
         style={{
           willChange: "transform",
           perspective: "1000px",
@@ -187,10 +187,10 @@ export function Hero() {
           <p className="text-xs sm:text-sm tracking-[0.4em] uppercase text-center text-white/80 mb-8">Архитектурное бюро</p>
 
           <h1 ref={titleRef} className="text-center text-white mb-0 flex flex-col items-center drop-shadow-lg">
-            <span className="text-5xl sm:text-7xl lg:text-8xl font-light tracking-[0.12em] uppercase leading-none">
+            <span className="text-4xl sm:text-6xl lg:text-7xl font-medium tracking-[0.15em] uppercase leading-none">
               ДОМ ПРОЕКТОВ
             </span>
-            <span className="text-lg sm:text-2xl lg:text-3xl font-light tracking-[0.5em] uppercase text-white/90 mt-5">
+            <span className="font-serif-display italic text-orange-200 text-6xl sm:text-8xl lg:text-9xl leading-[1.1] mt-2">
               под ключ
             </span>
           </h1>
