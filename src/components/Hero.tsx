@@ -186,8 +186,8 @@ export function Hero() {
         <div className="flex flex-col items-center">
           <p className="text-xs sm:text-sm tracking-[0.4em] uppercase text-center text-white/80 mb-8">Архитектурное бюро</p>
 
-          <h1 ref={titleRef} className="text-center text-white mb-0 flex flex-col items-center drop-shadow-lg">
-            <span className="text-5xl sm:text-7xl lg:text-8xl font-light tracking-[0.12em] uppercase leading-none">
+          <h1 ref={titleRef} className="font-strogo text-center text-white mb-0 flex flex-col items-center drop-shadow-lg">
+            <span className="text-5xl sm:text-7xl lg:text-8xl font-medium tracking-[0.12em] uppercase leading-none">
               ДОМ ПРОЕКТОВ
             </span>
             <span className="text-lg sm:text-2xl lg:text-3xl font-light tracking-[0.5em] uppercase text-white/90 mt-5">
