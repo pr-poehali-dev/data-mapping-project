@@ -18,7 +18,8 @@ export function Hero() {
 
   const applyTransform = (newProgress: number) => {
     if (contentRef.current) {
-      const translateY = newProgress * 200
+      const baseOffset = window.innerWidth >= 768 ? -80 : -64
+      const translateY = baseOffset + newProgress * 200
       const rotationX = newProgress * 45
       const scale = 1 - newProgress * 0.3
       contentRef.current.style.transform = `translateY(${translateY}px) rotateX(${rotationX}deg) scale(${scale})`
@@ -175,10 +176,9 @@ export function Hero() {
       {/* Title */}
       <div
         ref={contentRef}
-        className="container mx-auto px-6 md:px-12 relative z-10 pointer-events-none"
+        className="container mx-auto px-6 md:px-12 relative z-10 pointer-events-none -translate-y-16 md:-translate-y-20"
         style={{
           willChange: "transform",
-          transform: "translateY(0px)",
           perspective: "1000px",
           transformStyle: "preserve-3d",
         }}
@@ -187,10 +187,10 @@ export function Hero() {
           <p className="text-xs sm:text-sm tracking-[0.4em] uppercase text-center text-white/80 mb-8">Архитектурное бюро</p>
 
           <h1 ref={titleRef} className="text-center text-white mb-0 flex flex-col items-center drop-shadow-lg">
-            <span className="text-4xl sm:text-6xl lg:text-7xl font-medium tracking-[0.15em] uppercase leading-none">
+            <span className="text-5xl sm:text-7xl lg:text-8xl font-light tracking-[0.12em] uppercase leading-none">
               ДОМ ПРОЕКТОВ
             </span>
-            <span className="font-serif-display italic text-orange-200 text-6xl sm:text-8xl lg:text-9xl leading-[1.1] mt-2">
+            <span className="text-lg sm:text-2xl lg:text-3xl font-light tracking-[0.5em] uppercase text-white/90 mt-5">
               под ключ
             </span>
           </h1>
@@ -198,6 +198,13 @@ export function Hero() {
           <p className="text-white/80 text-sm md:text-base mt-8 text-center max-w-md">
             Потяните бегунок — сравните наш проект с готовой реализацией
           </p>
+
+          <a
+            href="#contact"
+            className="pointer-events-auto mt-8 inline-flex items-center gap-3 bg-white text-foreground px-8 py-4 text-sm tracking-wide hover:bg-white/90 transition-colors duration-300"
+          >
+            Оставить заявку
+          </a>
         </div>
       </div>
 
