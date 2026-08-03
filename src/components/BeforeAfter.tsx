@@ -1,8 +1,8 @@
 import { useRef, useState, useCallback, useEffect } from "react"
 import { HighlightedText } from "./HighlightedText"
 
-const RENDER_IMAGE = "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/files/4383f8c1-cac8-4ab3-b54e-672c9a3f95e4.jpg"
-const REAL_IMAGE = "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/files/d843dfad-a0a7-40b2-a8c5-964359f05dcf.jpg"
+const RENDER_IMAGE = "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/b0331e34-ee8c-42af-8dba-3adba449a110.jpg"
+const REAL_IMAGE = "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/372fac56-a6e4-43bf-81a9-beb484fa9cf0.jpg"
 
 export function BeforeAfter() {
   const containerRef = useRef<HTMLDivElement>(null)
