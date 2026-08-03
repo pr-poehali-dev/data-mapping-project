@@ -120,10 +120,11 @@ export function Hero() {
     <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hously-background.png"
-          alt="Минималистичный архитектурный интерьер"
+          src="https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/files/21f31d29-49b5-49c0-97b9-dffb0a89f50d.jpg"
+          alt="Современный частный дом под ключ"
           className="w-full h-full object-cover object-center"
         />
+        <div className="absolute inset-0 bg-black/35" />
       </div>
 
       <div
@@ -136,26 +137,23 @@ export function Hero() {
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="mt-24 md:mt-20 mb-72 md:mb-60 lg:mb-80">
-          <p className="text-sm tracking-[0.3em] uppercase text-center text-secondary mb-0">{"Архитектурное бюро"}</p>
+        <div className="mt-24 md:mt-20 flex flex-col items-center">
+          <p className="text-xs sm:text-sm tracking-[0.4em] uppercase text-center text-white/80 mb-8">{"Архитектурное бюро"}</p>
 
           <h1
             ref={titleRef}
-            className="text-5xl sm:text-7xl font-medium text-balance text-center text-white mb-0 tracking-tight leading-[0.9] lg:text-8xl"
+            className="text-center text-white mb-0 flex flex-col items-center"
           >
-            {"ДОМ ПРОЕКТОВ"}
-            <br />
-            <span className="text-orange-200">{"под ключ"}</span>
+            <span className="text-4xl sm:text-6xl lg:text-7xl font-medium tracking-[0.15em] uppercase leading-none">
+              ДОМ ПРОЕКТОВ
+            </span>
+            <span className="font-serif-display italic text-orange-200 text-6xl sm:text-8xl lg:text-9xl leading-[1.1] mt-2">
+              под ключ
+            </span>
           </h1>
-        </div>
-      </div>
 
-      <div className="absolute inset-0 z-20 pointer-events-none">
-        <img
-          src="/images/hously-foreground.png"
-          alt="Мраморная кухонная столешница"
-          className="w-full h-full object-cover object-center"
-        />
+          <div className="w-16 h-px bg-white/40 mt-10" />
+        </div>
       </div>
 
       {animationComplete && (
