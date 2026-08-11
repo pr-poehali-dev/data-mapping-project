@@ -145,10 +145,10 @@ export function Hero() {
       </div>
 
       {/* Labels */}
-      <span className="absolute bottom-24 left-6 md:left-12 z-20 bg-black/50 text-white text-[10px] md:text-xs tracking-widest uppercase px-3 py-1.5 pointer-events-none">
+      <span className="absolute bottom-8 left-6 md:bottom-10 md:left-12 z-20 rounded-full bg-black/60 text-white text-[10px] md:text-xs tracking-widest uppercase px-4 py-1.5 pointer-events-none">
         Проект
       </span>
-      <span className="absolute bottom-24 right-6 md:right-12 z-20 bg-black/50 text-white text-[10px] md:text-xs tracking-widest uppercase px-3 py-1.5 pointer-events-none">
+      <span className="absolute bottom-8 right-6 md:bottom-10 md:right-12 z-20 rounded-full bg-black/60 text-white text-[10px] md:text-xs tracking-widest uppercase px-4 py-1.5 pointer-events-none">
         Реализация
       </span>
 
@@ -184,24 +184,26 @@ export function Hero() {
         }}
       >
         <div className="flex flex-col items-center">
-          <p className="text-xs sm:text-sm tracking-[0.4em] uppercase text-center text-white/80 mb-8">Архитектурное бюро</p>
+          <p className="text-[10px] sm:text-xs tracking-[0.45em] uppercase text-center text-white/70 mb-6">
+            Архитектурное бюро
+          </p>
 
           <h1 ref={titleRef} className="text-center text-white mb-0 flex flex-col items-center drop-shadow-lg">
-            <span className="text-4xl sm:text-6xl lg:text-7xl font-medium tracking-[0.15em] uppercase leading-none">
-              ДОМ ПРОЕКТОВ
+            <span className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-[0.06em] leading-[1.15]">
+              Интерьер, который
             </span>
-            <span className="font-serif-display italic text-orange-200 text-6xl sm:text-8xl lg:text-9xl leading-[1.1] mt-2">
-              под ключ
+            <span className="font-serif-display italic text-orange-200 text-5xl sm:text-7xl lg:text-8xl leading-[1.15]">
+              совпадает с проектом
             </span>
           </h1>
 
-          <p className="text-white/80 text-sm md:text-base mt-8 text-center max-w-md">
-            Потяните бегунок — сравните наш проект с готовой реализацией
+          <p className="text-white/75 text-sm md:text-base mt-7 text-center max-w-md">
+            Потяните бегунок — сравните нашу визуализацию с готовой реализацией
           </p>
 
           <a
             href="#contact"
-            className="pointer-events-auto mt-8 inline-flex items-center gap-3 bg-white text-foreground px-8 py-4 text-sm tracking-wide hover:bg-white/90 transition-colors duration-300"
+            className="pointer-events-auto mt-8 inline-flex items-center gap-3 rounded-full bg-white text-black px-8 py-3.5 text-sm tracking-wide hover:bg-orange-200 transition-colors duration-300"
           >
             Оставить заявку
           </a>
@@ -209,7 +211,7 @@ export function Hero() {
       </div>
 
       {animationComplete && (
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-30 pointer-events-none">
+        <div className="absolute bottom-8 md:bottom-28 left-1/2 -translate-x-1/2 animate-bounce z-30 pointer-events-none">
           <ArrowDown className="w-5 h-5 text-white/70" />
         </div>
       )}

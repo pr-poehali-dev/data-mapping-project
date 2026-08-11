@@ -1,21 +1,19 @@
-import { useState, useEffect, MouseEvent } from "react"
+import { useState, MouseEvent } from "react"
 import { cn } from "../lib/utils"
 
+const NAV_ITEMS = [
+  { label: "Главная", href: "/#hero" },
+  { label: "Философия", href: "/#about" },
+  { label: "Портфолио", href: "/portfolio" },
+  { label: "Услуги", href: "/#services" },
+  { label: "Цены", href: "/#pricing" },
+  { label: "Вопросы", href: "/#faq" },
+]
+
 export function Header() {
-  const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false)
-  }
+  const closeMobileMenu = () => setMobileMenuOpen(false)
 
   const scrollToTop = (e: MouseEvent<HTMLAnchorElement>) => {
     if (window.location.pathname === "/") {
@@ -25,88 +23,73 @@ export function Header() {
   }
 
   return (
-    <header
-      className={cn(
-        "fixed z-50 transition-all duration-500 my-0 py-0 rounded-none",
-        scrolled || mobileMenuOpen
-          ? "bg-primary backdrop-blur-md py-4 top-4 left-4 right-4 rounded-2xl"
-          : "bg-transparent py-4 top-0 left-0 right-0",
-      )}
-    >
-      <nav className="container mx-auto px-6 flex items-center justify-between md:px-[24]">
-        <a href="/" className="flex items-center gap-2 group" onClick={scrollToTop} aria-label="На главную" />
+    <>
+      <a
+        href="/"
+        onClick={scrollToTop}
+        aria-label="ДОМ ПРОЕКТОВ — на главную"
+        className="fixed top-5 left-5 md:top-8 md:left-10 z-50 group"
+      >
+        <span className="font-strogo block leading-[0.9] text-white drop-shadow-md">
+          <span className="block text-xl md:text-2xl font-semibold tracking-[0.18em] uppercase">
+            ДОМ
+          </span>
+          <span className="block text-xl md:text-2xl font-light tracking-[0.18em] uppercase text-white/85">
+            ПРОЕКТОВ
+          </span>
+        </span>
+        <span className="mt-1.5 block h-px w-8 bg-orange-300 transition-all duration-300 group-hover:w-16" />
+      </a>
 
-        <ul className="hidden md:flex items-center gap-10 text-sm tracking-wide">
-          {[
-            { label: "Главная", href: "/#hero" },
-            { label: "Философия", href: "/#about" },
-            { label: "Портфолио", href: "/portfolio" },
-            { label: "Услуги", href: "/#services" },
-            { label: "Цены", href: "/#pricing" },
-            { label: "Вопросы", href: "/#faq" },
-          ].map((item) => (
-            <li key={item.label}>
-              <a
-                href={item.href}
-                className="hover:text-[rgb(251,146,60)] transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 hover:after:w-full after:bg-[rgb(251,146,60)] after:transition-all after:duration-300 text-white"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <button
+        className="md:hidden fixed top-5 right-5 z-[60] text-white drop-shadow-md"
+        aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        {mobileMenuOpen ? (
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        ) : (
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <line x1="4" y1="8" x2="20" y2="8" />
+            <line x1="4" y1="16" x2="20" y2="16" />
+          </svg>
+        )}
+      </button>
 
+      <nav className="hidden md:flex fixed bottom-7 left-1/2 -translate-x-1/2 z-50 items-center gap-1 rounded-full bg-black/85 backdrop-blur-md px-3 py-2 shadow-2xl ring-1 ring-white/10">
+        {NAV_ITEMS.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            className="px-4 py-2 text-[13px] tracking-wide text-white/80 rounded-full hover:text-white hover:bg-white/10 transition-all duration-300"
+          >
+            {item.label}
+          </a>
+        ))}
         <a
           href="/#contact"
-          className={cn(
-            "hidden md:inline-flex items-center gap-2 text-sm px-5 py-2.5 transition-all duration-300",
-            scrolled
-              ? "bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white"
-              : "bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white",
-          )}
+          className="ml-2 px-5 py-2 text-[13px] tracking-wide rounded-full bg-white text-black hover:bg-orange-200 transition-colors duration-300"
         >
           Связаться
         </a>
-
-        <button
-          className="md:hidden z-50 transition-colors duration-300 text-white"
-          aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          ) : (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <line x1="4" y1="8" x2="20" y2="8" />
-              <line x1="4" y1="16" x2="20" y2="16" />
-            </svg>
-          )}
-        </button>
       </nav>
 
       <div
         className={cn(
-          "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-          mobileMenuOpen ? "max-h-[600px] opacity-100 mt-8" : "max-h-0 opacity-0",
+          "md:hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-md transition-all duration-300",
+          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         )}
       >
-        <div className="container mx-auto px-6">
-          <ul className="flex flex-col gap-6 mb-8">
-            {[
-              { label: "Главная", href: "/#hero" },
-              { label: "Философия", href: "/#about" },
-              { label: "Портфолио", href: "/portfolio" },
-              { label: "Услуги", href: "/#services" },
-              { label: "Цены", href: "/#pricing" },
-              { label: "Вопросы", href: "/#faq" },
-            ].map((item) => (
+        <div className="flex flex-col justify-center h-full px-8">
+          <ul className="flex flex-col gap-5 mb-10">
+            {NAV_ITEMS.map((item) => (
               <li key={item.label}>
                 <a
                   href={item.href}
-                  className="hover:text-[rgb(251,146,60)] transition-colors duration-300 text-white text-3xl sm:text-4xl font-light block"
+                  className="text-white text-3xl font-light tracking-wide hover:text-orange-300 transition-colors duration-300 block"
                   onClick={closeMobileMenu}
                 >
                   {item.label}
@@ -114,16 +97,15 @@ export function Header() {
               </li>
             ))}
           </ul>
-
           <a
             href="/#contact"
-            className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white transition-all duration-300 mb-4"
+            className="self-start px-7 py-3 text-sm rounded-full bg-white text-black hover:bg-orange-200 transition-colors duration-300"
             onClick={closeMobileMenu}
           >
             Связаться
           </a>
         </div>
       </div>
-    </header>
+    </>
   )
 }
