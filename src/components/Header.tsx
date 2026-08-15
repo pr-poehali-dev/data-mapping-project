@@ -1,17 +1,40 @@
-import { useState, MouseEvent } from "react"
+import { useState, useEffect, MouseEvent } from "react"
 import { cn } from "../lib/utils"
 
 const NAV_ITEMS = [
-  { label: "Главная", href: "/#hero" },
-  { label: "Философия", href: "/#about" },
-  { label: "Портфолио", href: "/portfolio" },
-  { label: "Услуги", href: "/#services" },
-  { label: "Цены", href: "/#pricing" },
-  { label: "Вопросы", href: "/#faq" },
+  { label: "Главная", href: "/#hero", section: "hero" },
+  { label: "Философия", href: "/#about", section: "about" },
+  { label: "Портфолио", href: "/portfolio", section: "portfolio" },
+  { label: "Услуги", href: "/#services", section: "services" },
+  { label: "Цены", href: "/#pricing", section: "pricing" },
+  { label: "Вопросы", href: "/#faq", section: "faq" },
 ]
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("hero")
+  const isHome = typeof window !== "undefined" && window.location.pathname === "/"
+
+  useEffect(() => {
+    if (!isHome) return
+
+    const handleScroll = () => {
+      const offset = window.innerHeight * 0.35
+      let current = "hero"
+      for (const item of NAV_ITEMS) {
+        const el = document.getElementById(item.section)
+        if (el && el.getBoundingClientRect().top <= offset) current = item.section
+      }
+      setActiveSection(current)
+    }
+
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [isHome])
+
+  const isActive = (section: string) =>
+    isHome ? activeSection === section : window.location.pathname === "/portfolio" && section === "portfolio"
 
   const closeMobileMenu = () => setMobileMenuOpen(false)
 
@@ -31,7 +54,12 @@ export function Header() {
               <a
                 key={item.label}
                 href={item.href}
-                className="px-4 py-2 text-[13px] tracking-wide text-white/75 rounded-full hover:text-white hover:bg-white/10 transition-all duration-300"
+                className={cn(
+                  "px-4 py-2 text-[13px] tracking-wide rounded-full transition-all duration-300",
+                  isActive(item.section)
+                    ? "text-black bg-orange-200"
+                    : "text-white/75 hover:text-white hover:bg-white/10",
+                )}
               >
                 {item.label}
               </a>
@@ -90,7 +118,10 @@ export function Header() {
               <li key={item.label}>
                 <a
                   href={item.href}
-                  className="text-white text-3xl font-light tracking-wide hover:text-orange-300 transition-colors duration-300 block"
+                  className={cn(
+                    "text-3xl font-light tracking-wide transition-colors duration-300 block",
+                    isActive(item.section) ? "text-orange-300" : "text-white hover:text-orange-300",
+                  )}
                   onClick={closeMobileMenu}
                 >
                   {item.label}
