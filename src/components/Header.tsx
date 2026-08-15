@@ -6,7 +6,7 @@ const NAV_ITEMS = [
   { label: "Философия", href: "/#about", section: "about" },
   { label: "Портфолио", href: "/portfolio", section: "portfolio" },
   { label: "Услуги", href: "/#services", section: "services" },
-  { label: "Цены", href: "/#pricing", section: "pricing" },
+  { label: "Цены", href: "/pricing", section: "pricing" },
   { label: "Вопросы", href: "/#faq", section: "faq" },
 ]
 
@@ -33,8 +33,13 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [isHome])
 
-  const isActive = (section: string) =>
-    isHome ? activeSection === section : window.location.pathname === "/portfolio" && section === "portfolio"
+  const isActive = (section: string) => {
+    if (isHome) return activeSection === section
+    const path = typeof window !== "undefined" ? window.location.pathname : ""
+    if (section === "portfolio") return path.startsWith("/portfolio")
+    if (section === "pricing") return path.startsWith("/pricing")
+    return false
+  }
 
   const closeMobileMenu = () => setMobileMenuOpen(false)
 

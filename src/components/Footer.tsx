@@ -38,7 +38,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/#pricing" className="hover:text-foreground transition-colors">
+                <a href="/pricing" className="hover:text-foreground transition-colors">
                   Цены
                 </a>
               </li>
