@@ -6,7 +6,7 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <a href="/" className="inline-block mb-6">
-              <span className="font-medium tracking-widest text-sm uppercase">ДОМ ПРОЕКТОВ</span>
+              <img src="/logo.png" alt="ДОМ ПРОЕКТОВ" className="h-14 w-auto" draggable={false} />
             </a>
             <p className="text-muted-foreground leading-relaxed max-w-sm">
               Архитектурное бюро под ключ. Частные дома, дизайн интерьеров и ландшафтный дизайн — в едином проекте.

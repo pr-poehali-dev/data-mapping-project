@@ -58,7 +58,7 @@ export function DirectionPage({ data }: { data: DirectionData }) {
               <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-10">{data.intro}</p>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-3 bg-foreground text-primary-foreground px-8 py-4 text-sm tracking-wide hover:bg-foreground/90 transition-colors duration-300 group"
+                className="inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 text-sm tracking-wide hover:bg-foreground/90 transition-colors duration-300 group"
               >
                 Обсудить проект
                 <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
@@ -184,19 +184,19 @@ export function DirectionPage({ data }: { data: DirectionData }) {
       </section>
 
       {/* CTA */}
-      <section id="contact" className="py-24 md:py-32 bg-foreground text-primary-foreground">
+      <section id="contact" className="py-24 md:py-32 bg-card text-foreground">
         <div className="container mx-auto px-6 md:px-12 text-center max-w-3xl">
           <h2 className="text-3xl md:text-5xl font-medium leading-[1.1] tracking-tight mb-8 text-balance">
             Готовы начать
             <br />
             свой проект?
           </h2>
-          <p className="text-primary-foreground/70 text-lg leading-relaxed mb-12 max-w-xl mx-auto">
+          <p className="text-foreground/70 text-lg leading-relaxed mb-12 max-w-xl mx-auto">
             Оставьте заявку — проведём бесплатную консультацию и рассчитаем стоимость под вашу задачу.
           </p>
           <a
             href="mailto:d@p-shalamova.ru"
-            className="inline-flex items-center justify-center gap-3 bg-primary-foreground text-foreground px-8 py-4 text-sm tracking-wide hover:bg-primary-foreground/90 transition-colors duration-300 group"
+            className="inline-flex items-center justify-center gap-3 bg-foreground text-background px-8 py-4 text-sm tracking-wide hover:bg-foreground/90 transition-colors duration-300 group"
           >
             Получить консультацию
             <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />

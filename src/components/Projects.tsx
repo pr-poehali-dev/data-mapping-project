@@ -129,7 +129,7 @@ export function Projects() {
               onClick={() => setActiveFilter(filter.id)}
               className={`px-5 py-2.5 text-sm tracking-wide transition-all duration-300 border ${
                 activeFilter === filter.id
-                  ? "bg-foreground text-primary-foreground border-foreground"
+                  ? "bg-foreground text-background border-foreground"
                   : "bg-transparent text-muted-foreground border-border hover:border-foreground hover:text-foreground"
               }`}
             >

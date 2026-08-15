@@ -42,10 +42,10 @@ export function CallToAction() {
   }
 
   return (
-    <section id="contact" className="py-32 md:py-29 bg-foreground text-primary-foreground">
+    <section id="contact" className="py-32 md:py-29 bg-card text-foreground">
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-primary-foreground/60 text-sm tracking-[0.3em] uppercase mb-8">Начать проект</p>
+          <p className="text-foreground/60 text-sm tracking-[0.3em] uppercase mb-8">Начать проект</p>
 
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-medium leading-[1.1] tracking-tight mb-8 text-balance">
             Создадим ваш дом
@@ -53,7 +53,7 @@ export function CallToAction() {
             мечты <HighlightedText>под ключ</HighlightedText>
           </h2>
 
-          <p className="text-primary-foreground/70 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
+          <p className="text-foreground/70 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
             Расскажите нам о вашей идее — архитектура, интерьер или ландшафт. Мы проведём бесплатную консультацию и предложим решение.
           </p>
 
@@ -64,14 +64,14 @@ export function CallToAction() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Ваше имя *"
-                className="w-full bg-transparent border border-primary-foreground/25 px-4 py-3.5 text-sm text-primary-foreground placeholder:text-primary-foreground/40 focus:border-primary-foreground/60 focus:outline-none transition-colors"
+                className="w-full bg-transparent border border-foreground/25 px-4 py-3.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-foreground/60 focus:outline-none transition-colors"
               />
               <input
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Телефон *"
-                className="w-full bg-transparent border border-primary-foreground/25 px-4 py-3.5 text-sm text-primary-foreground placeholder:text-primary-foreground/40 focus:border-primary-foreground/60 focus:outline-none transition-colors"
+                className="w-full bg-transparent border border-foreground/25 px-4 py-3.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-foreground/60 focus:outline-none transition-colors"
               />
             </div>
             <input
@@ -79,19 +79,19 @@ export function CallToAction() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
-              className="w-full bg-transparent border border-primary-foreground/25 px-4 py-3.5 text-sm text-primary-foreground placeholder:text-primary-foreground/40 focus:border-primary-foreground/60 focus:outline-none transition-colors"
+              className="w-full bg-transparent border border-foreground/25 px-4 py-3.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-foreground/60 focus:outline-none transition-colors"
             />
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Расскажите о вашем проекте"
               rows={4}
-              className="w-full bg-transparent border border-primary-foreground/25 px-4 py-3.5 text-sm text-primary-foreground placeholder:text-primary-foreground/40 focus:border-primary-foreground/60 focus:outline-none transition-colors resize-none"
+              className="w-full bg-transparent border border-foreground/25 px-4 py-3.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-foreground/60 focus:outline-none transition-colors resize-none"
             />
             <button
               type="submit"
               disabled={loading}
-              className="inline-flex w-full items-center justify-center gap-3 bg-primary-foreground text-foreground px-8 py-4 text-sm tracking-wide hover:bg-primary-foreground/90 transition-colors duration-300 group disabled:opacity-60"
+              className="inline-flex w-full items-center justify-center gap-3 bg-foreground text-background px-8 py-4 text-sm tracking-wide hover:bg-foreground/90 transition-colors duration-300 group disabled:opacity-60"
             >
               {loading ? "Отправляем..." : "Оставить заявку"}
               {!loading && <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />}
@@ -101,7 +101,7 @@ export function CallToAction() {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
             <a
               href="tel:+79220299901"
-              className="inline-flex items-center gap-2.5 border border-primary-foreground/25 px-5 py-3 text-sm hover:bg-primary-foreground hover:text-foreground transition-colors duration-300"
+              className="inline-flex items-center gap-2.5 border border-foreground/25 px-5 py-3 text-sm hover:bg-foreground hover:text-background transition-colors duration-300"
             >
               <Phone className="w-4 h-4" />
               +7 922 029-99-01
@@ -110,7 +110,7 @@ export function CallToAction() {
               href="https://t.me/+79220299901"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 border border-primary-foreground/25 px-5 py-3 text-sm hover:bg-primary-foreground hover:text-foreground transition-colors duration-300"
+              className="inline-flex items-center gap-2.5 border border-foreground/25 px-5 py-3 text-sm hover:bg-foreground hover:text-background transition-colors duration-300"
             >
               <Send className="w-4 h-4" />
               Telegram
@@ -119,7 +119,7 @@ export function CallToAction() {
               href="https://max.ru/u/79220299901"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 border border-primary-foreground/25 px-5 py-3 text-sm hover:bg-primary-foreground hover:text-foreground transition-colors duration-300"
+              className="inline-flex items-center gap-2.5 border border-foreground/25 px-5 py-3 text-sm hover:bg-foreground hover:text-background transition-colors duration-300"
             >
               <MessageCircle className="w-4 h-4" />
               MAX
@@ -128,16 +128,16 @@ export function CallToAction() {
               href="https://www.instagram.com/dom_proektov?igsh=MXI2OWR3bjh0c25lOA=="
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 border border-primary-foreground/25 px-5 py-3 text-sm hover:bg-primary-foreground hover:text-foreground transition-colors duration-300"
+              className="inline-flex items-center gap-2.5 border border-foreground/25 px-5 py-3 text-sm hover:bg-foreground hover:text-background transition-colors duration-300"
             >
               <Instagram className="w-4 h-4" />
               Instagram
             </a>
           </div>
 
-          <p className="text-primary-foreground/50 text-sm mt-10">
+          <p className="text-foreground/50 text-sm mt-10">
             Или напишите нам:{" "}
-            <a href="mailto:d@p-shalamova.ru" className="text-primary-foreground hover:text-orange-200 transition-colors">
+            <a href="mailto:d@p-shalamova.ru" className="text-foreground hover:text-orange-200 transition-colors">
               d@p-shalamova.ru
             </a>
           </p>

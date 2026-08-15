@@ -190,7 +190,7 @@ export function Pricing() {
                       {tier.tag}
                     </span>
                     {tier.featured && (
-                      <span className="text-xs tracking-wide bg-foreground text-primary-foreground px-2.5 py-1">
+                      <span className="text-xs tracking-wide bg-foreground text-background px-2.5 py-1">
                         Популярный
                       </span>
                     )}
@@ -225,8 +225,8 @@ export function Pricing() {
                       href="#contact"
                       className={`mt-2 inline-flex w-full items-center justify-center gap-2 px-6 py-3.5 text-sm tracking-wide transition-colors duration-300 group ${
                         tier.featured
-                          ? "bg-foreground text-primary-foreground hover:bg-foreground/90"
-                          : "border border-foreground hover:bg-foreground hover:text-primary-foreground"
+                          ? "bg-foreground text-background hover:bg-foreground/90"
+                          : "border border-foreground hover:bg-foreground hover:text-background"
                       }`}
                     >
                       Оставить заявку
@@ -274,7 +274,7 @@ export function Pricing() {
                   </p>
                   <a
                     href="#contact"
-                    className="mt-5 inline-flex w-full items-center justify-center gap-2 border border-foreground px-6 py-3.5 text-sm tracking-wide transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground group"
+                    className="mt-5 inline-flex w-full items-center justify-center gap-2 border border-foreground px-6 py-3.5 text-sm tracking-wide transition-colors duration-300 hover:bg-foreground hover:text-background group"
                   >
                     Оставить заявку
                     <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
@@ -307,7 +307,7 @@ export function Pricing() {
                 ))}
                 <a
                   href="#contact"
-                  className="mt-2 inline-flex w-full items-center justify-center gap-2 border border-foreground px-6 py-3.5 text-sm tracking-wide transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground group"
+                  className="mt-2 inline-flex w-full items-center justify-center gap-2 border border-foreground px-6 py-3.5 text-sm tracking-wide transition-colors duration-300 hover:bg-foreground hover:text-background group"
                 >
                   Оставить заявку
                   <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
@@ -318,9 +318,9 @@ export function Pricing() {
         </div>
 
         {/* Calculator */}
-        <div className="bg-foreground text-primary-foreground p-6 sm:p-10 md:p-16">
+        <div className="bg-card text-foreground p-6 sm:p-10 md:p-16">
           <div className="max-w-4xl mx-auto">
-            <p className="text-primary-foreground/60 text-sm tracking-[0.3em] uppercase mb-4">Калькулятор</p>
+            <p className="text-foreground/60 text-sm tracking-[0.3em] uppercase mb-4">Калькулятор</p>
             <h3 className="text-3xl md:text-4xl font-medium mb-12 tracking-tight">Рассчитайте стоимость проекта</h3>
 
             <div className="grid md:grid-cols-2 gap-12">
@@ -329,7 +329,7 @@ export function Pricing() {
                 {/* Area slider */}
                 <div>
                   <div className="flex justify-between items-baseline mb-4">
-                    <label className="text-sm tracking-wide text-primary-foreground/70">Площадь</label>
+                    <label className="text-sm tracking-wide text-foreground/70">Площадь</label>
                     <span className="text-2xl font-medium">{area} м²</span>
                   </div>
                   <input
@@ -341,7 +341,7 @@ export function Pricing() {
                     onChange={(e) => setArea(Number(e.target.value))}
                     className="w-full accent-orange-400 cursor-pointer"
                   />
-                  <div className="flex justify-between text-xs text-primary-foreground/40 mt-2">
+                  <div className="flex justify-between text-xs text-foreground/40 mt-2">
                     <span>30 м²</span>
                     <span>1 000 м²</span>
                   </div>
@@ -349,7 +349,7 @@ export function Pricing() {
 
                 {/* Service toggles */}
                 <div>
-                  <p className="text-sm tracking-wide text-primary-foreground/70 mb-4">Услуги</p>
+                  <p className="text-sm tracking-wide text-foreground/70 mb-4">Услуги</p>
                   <div className="flex flex-col gap-3">
                     {serviceOptions.map((s) => (
                       <button
@@ -358,11 +358,11 @@ export function Pricing() {
                         className={`flex items-center justify-between gap-3 px-5 py-4 border transition-all duration-200 text-left ${
                           selectedServices.includes(s.id)
                             ? "border-orange-400 bg-orange-400/10"
-                            : "border-primary-foreground/20 hover:border-primary-foreground/40"
+                            : "border-foreground/20 hover:border-foreground/40"
                         }`}
                       >
                         <span className="text-sm">{s.label}</span>
-                        <span className="text-xs text-primary-foreground/50 whitespace-nowrap">
+                        <span className="text-xs text-foreground/50 whitespace-nowrap">
                           {formatPrice(s.pricePerM2 * area)}
                         </span>
                       </button>
@@ -372,30 +372,30 @@ export function Pricing() {
               </div>
 
               {/* Right: result */}
-              <div className="flex flex-col justify-between md:border-l border-primary-foreground/10 md:pl-12 pt-10 border-t md:border-t-0 md:pt-0">
+              <div className="flex flex-col justify-between md:border-l border-foreground/10 md:pl-12 pt-10 border-t md:border-t-0 md:pt-0">
                 <div>
-                  <p className="text-sm text-primary-foreground/60 mb-2">Итоговая стоимость</p>
+                  <p className="text-sm text-foreground/60 mb-2">Итоговая стоимость</p>
                   <div className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight mb-2 break-words">
                     {selectedServices.length === 0 ? (
-                      <span className="text-primary-foreground/30 text-2xl sm:text-3xl">Выберите услуги</span>
+                      <span className="text-foreground/30 text-2xl sm:text-3xl">Выберите услуги</span>
                     ) : (
                       formatPrice(totalPrice)
                     )}
                   </div>
                   {selectedServices.length > 0 && (
-                    <p className="text-primary-foreground/40 text-sm">
+                    <p className="text-foreground/40 text-sm">
                       ориентировочно · {area} м²
                     </p>
                   )}
                 </div>
 
                 <div className="mt-10 space-y-4">
-                  <p className="text-primary-foreground/50 text-sm leading-relaxed">
+                  <p className="text-foreground/50 text-sm leading-relaxed">
                     Точная стоимость зависит от сложности проекта. Свяжитесь с нами — проведём бесплатную консультацию.
                   </p>
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-7 py-4 text-sm tracking-wide hover:bg-primary-foreground/90 transition-colors duration-300 group"
+                    className="inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 text-sm tracking-wide hover:bg-foreground/90 transition-colors duration-300 group"
                   >
                     Получить точный расчёт
                     <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />

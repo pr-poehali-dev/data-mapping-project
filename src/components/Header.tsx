@@ -30,15 +30,12 @@ export function Header() {
         aria-label="ДОМ ПРОЕКТОВ — на главную"
         className="fixed top-5 left-5 md:top-8 md:left-10 z-50 group"
       >
-        <span className="font-strogo block leading-[0.9] text-white drop-shadow-md">
-          <span className="block text-xl md:text-2xl font-semibold tracking-[0.18em] uppercase">
-            ДОМ
-          </span>
-          <span className="block text-xl md:text-2xl font-light tracking-[0.18em] uppercase text-white/85">
-            ПРОЕКТОВ
-          </span>
-        </span>
-        <span className="mt-1.5 block h-px w-8 bg-orange-300 transition-all duration-300 group-hover:w-16" />
+        <img
+          src="/logo.png"
+          alt="ДОМ ПРОЕКТОВ"
+          className="h-11 md:h-14 w-auto drop-shadow-lg transition-opacity duration-300 group-hover:opacity-80"
+          draggable={false}
+        />
       </a>
 
       <button
