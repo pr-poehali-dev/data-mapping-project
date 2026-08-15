@@ -176,7 +176,7 @@ export function Hero() {
       {/* Title */}
       <div
         ref={contentRef}
-        className="container mx-auto px-6 md:px-12 relative z-10 pointer-events-none -translate-y-8 md:-translate-y-10"
+        className="container mx-auto px-6 md:px-12 pt-16 md:pt-20 relative z-10 pointer-events-none -translate-y-8 md:-translate-y-10"
         style={{
           willChange: "transform",
           perspective: "1000px",
