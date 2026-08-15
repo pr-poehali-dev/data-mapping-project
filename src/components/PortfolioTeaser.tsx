@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom"
 import { ArrowUpRight } from "lucide-react"
 import { PortfolioGrid } from "./PortfolioGrid"
-import { portfolioProjects } from "../data/portfolio"
+import { portfolioProjects, PortfolioType } from "../data/portfolio"
+
+const DIRECTIONS: PortfolioType[] = ["architecture", "interior", "landscape"]
 
 export function PortfolioTeaser() {
-  const featured = portfolioProjects.slice(0, 3)
+  const featured = DIRECTIONS.map((type) => portfolioProjects.find((p) => p.type === type)).filter(
+    (p): p is (typeof portfolioProjects)[number] => Boolean(p),
+  )
 
   return (
     <section id="portfolio" className="py-24 md:py-28">
@@ -13,8 +17,11 @@ export function PortfolioTeaser() {
           <div>
             <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Портфолио</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-              Избранные проекты
+              По проекту из каждого направления
             </h2>
+            <p className="text-muted-foreground mt-4 max-w-md">
+              Архитектура, интерьеры и ландшафт — три направления в одном бюро.
+            </p>
           </div>
           <Link
             to="/portfolio"
