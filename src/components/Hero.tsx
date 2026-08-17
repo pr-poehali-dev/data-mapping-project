@@ -188,11 +188,11 @@ export function Hero() {
             Архитектурное бюро
           </p>
 
-          <h1 ref={titleRef} className="text-center text-white mb-0 flex flex-col items-center drop-shadow-lg">
-            <span className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-[0.06em] leading-[1.15]">
+          <h1 ref={titleRef} className="text-center text-white mb-0 flex flex-col items-center drop-shadow-lg uppercase">
+            <span className="text-2xl sm:text-4xl lg:text-5xl font-light tracking-[0.16em] leading-[1.3]">
               Интерьер, который
             </span>
-            <span className="font-serif-display italic text-orange-200 text-5xl sm:text-7xl lg:text-8xl leading-[1.15]">
+            <span className="mt-3 md:mt-4 text-2xl sm:text-4xl lg:text-5xl font-light tracking-[0.16em] leading-[1.3] text-orange-200">
               совпадает с проектом
             </span>
           </h1>
