@@ -3,16 +3,6 @@ export function Footer() {
     <footer className="py-16 md:py-24 border-t border-border">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <a href="/" className="inline-block mb-6">
-              <img src="/logo.png" alt="ДОМ ПРОЕКТОВ" className="h-14 w-auto" draggable={false} />
-            </a>
-            <p className="text-muted-foreground leading-relaxed max-w-sm">
-              Архитектурное бюро под ключ. Частные дома, дизайн интерьеров и ландшафтный дизайн — в едином проекте.
-            </p>
-          </div>
-
           {/* Directions */}
           <div>
             <h4 className="text-sm font-medium mb-4">Направления</h4>
@@ -75,6 +65,16 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+
+          {/* Brand */}
+          <div className="md:col-span-2 md:text-right">
+            <a href="/" className="inline-block mb-6">
+              <img src="/logo.png" alt="ДОМ ПРОЕКТОВ" className="h-14 w-auto" draggable={false} />
+            </a>
+            <p className="text-muted-foreground leading-relaxed max-w-sm md:ml-auto">
+              Архитектурное бюро под ключ. Частные дома, дизайн интерьеров и ландшафтный дизайн — в едином проекте.
+            </p>
           </div>
         </div>
 
