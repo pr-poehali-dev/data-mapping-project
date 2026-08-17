@@ -13,12 +13,17 @@ const NAV_ITEMS = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
+  const [scrolled, setScrolled] = useState(false)
   const isHome = typeof window !== "undefined" && window.location.pathname === "/"
 
   useEffect(() => {
-    if (!isHome) return
+    if (!isHome) {
+      setScrolled(true)
+      return
+    }
 
     const handleScroll = () => {
+      setScrolled(window.scrollY > 40)
       const offset = window.innerHeight * 0.35
       let current = "hero"
       for (const item of NAV_ITEMS) {
@@ -52,7 +57,14 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-white/10">
+      <header
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          scrolled || mobileMenuOpen
+            ? "bg-black/95 backdrop-blur-md border-b border-white/10"
+            : "bg-gradient-to-b from-black/45 to-transparent border-b border-transparent",
+        )}
+      >
         <div className="container mx-auto px-5 md:px-10 h-16 md:h-20 flex items-center justify-between">
           <a
             href="/"
