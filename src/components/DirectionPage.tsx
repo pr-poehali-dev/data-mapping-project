@@ -67,7 +67,7 @@ export function DirectionPage({ data }: { data: DirectionData }) {
               </a>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden">
-              <img src={data.heroImage} alt={data.title} className="w-full h-full object-cover" />
+              <img loading="lazy" src={data.heroImage} alt={data.title} className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -163,7 +163,7 @@ export function DirectionPage({ data }: { data: DirectionData }) {
                   className="relative overflow-hidden aspect-[4/3] mb-6 cursor-zoom-in"
                   onClick={() => openWork(w)}
                 >
-                  <img
+                  <img loading="lazy"
                     src={w.image}
                     alt={w.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

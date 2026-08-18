@@ -118,7 +118,7 @@ export const portfolioProjects: PortfolioProject[] = [
     year: "2024",
     area: "420 м²",
     duration: "14 месяцев",
-    image: "/images/hously-1.png",
+    image: "/images/hously-1.webp",
     description:
       "Частный дом в стиле современного минимализма, органично вписанный в сосновый лес. Панорамное остекление, монолитный каркас и натуральные материалы фасада создают ощущение единства с природой.",
     scope: ["Эскизный проект", "Рабочая документация", "3D-визуализация", "Авторский надзор"],
@@ -132,7 +132,7 @@ export const portfolioProjects: PortfolioProject[] = [
     year: "2023",
     area: "560 м²",
     duration: "18 месяцев",
-    image: "/images/hously-3.png",
+    image: "/images/hously-3.webp",
     description:
       "Двухуровневая вилла с видом на море. Открытые террасы, бассейн-инфинити и большие остеклённые пространства подчёркивают курортный характер дома.",
     scope: ["Концепция", "Рабочая документация", "Ландшафт участка", "Авторский надзор"],
@@ -146,7 +146,7 @@ export const portfolioProjects: PortfolioProject[] = [
     year: "2024",
     area: "380 м²",
     duration: "12 месяцев",
-    image: "/images/exterior.png",
+    image: "/images/exterior.webp",
     description:
       "Загородный дом в стиле барнхаус с двускатной кровлей и полностью остеклённой гостиной. Лаконичная архитектура и продуманная инсоляция.",
     scope: ["Эскизный проект", "Рабочая документация", "3D-визуализация"],
@@ -160,7 +160,7 @@ export const portfolioProjects: PortfolioProject[] = [
     year: "2024",
     area: "310 м²",
     duration: "8 месяцев",
-    image: "/images/hously-2.png",
+    image: "/images/hously-2.webp",
     description:
       "Тёплый минимализм с натуральным деревом, камнем и мягким текстилем. Продуманная эргономика, сценарное освещение и индивидуальная мебель на заказ.",
     scope: ["Концепция", "Дизайн-проект", "Подбор мебели", "Авторский надзор"],
@@ -174,7 +174,7 @@ export const portfolioProjects: PortfolioProject[] = [
     year: "2024",
     area: "72 м²",
     duration: "5 месяцев",
-    image: "/images/desk.png",
+    image: "/images/desk.webp",
     description:
       "Открытое пространство кухни-гостиной с островом, скрытым хранением и акцентом на натуральные фактуры. Единая цветовая палитра объединяет зоны.",
     scope: ["Концепция", "Дизайн-проект", "Подбор материалов"],
@@ -188,7 +188,7 @@ export const portfolioProjects: PortfolioProject[] = [
     year: "2023",
     area: "34 м²",
     duration: "3 месяца",
-    image: "/images/hously-3.png",
+    image: "/images/hously-3.webp",
     description:
       "Спокойный интерьер спальни в приглушённых тонах с мягкими формами, скрытой подсветкой и продуманными системами хранения.",
     scope: ["Дизайн-проект", "Подбор мебели и декора"],
@@ -202,7 +202,7 @@ export const portfolioProjects: PortfolioProject[] = [
     year: "2023",
     area: "1 200 м²",
     duration: "6 месяцев",
-    image: "/images/hously-4.png",
+    image: "/images/hously-4.webp",
     description:
       "Ландшафтный проект участка с зоной отдыха, деревянной террасой и миксбордерами. Растения подобраны так, чтобы сад был декоративным круглый год.",
     scope: ["Концепция участка", "Дендроплан", "Освещение", "Авторский надзор"],
@@ -216,7 +216,7 @@ export const portfolioProjects: PortfolioProject[] = [
     year: "2023",
     area: "2 400 м²",
     duration: "9 месяцев",
-    image: "/images/exterior.png",
+    image: "/images/exterior.webp",
     description:
       "Благоустройство большой усадьбы: зонирование, водоём, дорожно-тропиночная сеть, зона барбекю и ландшафтное освещение в едином стиле с домом.",
     scope: ["Концепция", "Ландшафтный проект", "Дендроплан", "Авторский надзор"],

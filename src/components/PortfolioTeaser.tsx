@@ -43,7 +43,7 @@ export function PortfolioTeaser() {
               to={`/portfolio/${project!.id}`}
               className="group relative overflow-hidden aspect-[3/4] rounded-lg"
             >
-              <img
+              <img loading="lazy"
                 src={project!.image}
                 alt={project!.title}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

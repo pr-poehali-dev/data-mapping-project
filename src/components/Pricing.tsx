@@ -70,7 +70,7 @@ export function Pricing() {
             <div key={section.id} className="border border-border flex flex-col">
               <div className="relative aspect-[16/7] overflow-hidden">
                 {sectionCovers[section.id] && (
-                  <img
+                  <img loading="lazy"
                     src={sectionCovers[section.id]}
                     alt={section.title}
                     className="absolute inset-0 w-full h-full object-cover"

@@ -26,7 +26,7 @@ const projects: {
     type: "architecture",
     location: "Подмосковье",
     year: "2024",
-    image: "/images/hously-1.png",
+    image: "/images/hously-1.webp",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const projects: {
     type: "interior",
     location: "Рублёвское шоссе",
     year: "2024",
-    image: "/images/hously-2.png",
+    image: "/images/hously-2.webp",
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const projects: {
     type: "architecture",
     location: "Сочи",
     year: "2023",
-    image: "/images/hously-3.png",
+    image: "/images/hously-3.webp",
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ const projects: {
     type: "landscape",
     location: "Новая Рига",
     year: "2023",
-    image: "/images/hously-4.png",
+    image: "/images/hously-4.webp",
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ const projects: {
     type: "interior",
     location: "Барвиха",
     year: "2024",
-    image: "/images/desk.png",
+    image: "/images/desk.webp",
   },
   {
     id: 6,
@@ -71,7 +71,7 @@ const projects: {
     type: "landscape",
     location: "Истра",
     year: "2023",
-    image: "/images/exterior.png",
+    image: "/images/exterior.webp",
   },
 ]
 
@@ -147,7 +147,7 @@ export function Projects() {
               onMouseLeave={() => setHoveredId(null)}
             >
               <div ref={(el) => (imageRefs.current[index] = el)} className="relative overflow-hidden aspect-[4/3] mb-6">
-                <img
+                <img loading="lazy"
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   className={`w-full h-full object-cover transition-transform duration-700 ${

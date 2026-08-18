@@ -70,7 +70,7 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2 md:text-right">
             <a href="/" className="inline-block mb-6">
-              <img src="/logo.png" alt="ДОМ ПРОЕКТОВ" className="h-14 w-auto" draggable={false} />
+              <img loading="lazy" src="/logo.png" alt="ДОМ ПРОЕКТОВ" className="h-14 w-auto" draggable={false} />
             </a>
             <p className="text-muted-foreground leading-relaxed max-w-sm md:ml-auto">
               Архитектурное бюро под ключ. Частные дома, дизайн интерьеров и ландшафтный дизайн — в едином проекте.

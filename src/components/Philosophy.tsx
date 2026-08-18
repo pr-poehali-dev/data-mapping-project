@@ -61,7 +61,7 @@ export function Philosophy() {
             </h2>
 
             <figure className="relative mt-8 max-w-xs">
-              <img
+              <img loading="lazy"
                 src="https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/9d8968ca-e857-4d1a-b2f3-a38ca49211df.jpg"
                 alt="Шаламова Татьяна Александровна — основатель и руководитель бюро"
                 className="opacity-90 relative z-10 w-full h-auto"

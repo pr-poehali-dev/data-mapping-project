@@ -18,7 +18,7 @@ export function SectionPricing({ id }: { id: "architecture" | "landscape" }) {
 
       <div className="border border-border bg-background max-w-3xl">
         <div className="relative aspect-[16/7] overflow-hidden">
-          {cover && <img src={cover} alt={section.title} className="absolute inset-0 w-full h-full object-cover" />}
+          {cover && <img loading="lazy" src={cover} alt={section.title} className="absolute inset-0 w-full h-full object-cover" />}
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent" />
           <div className="relative h-full p-8 flex flex-col justify-end text-background">
             <Icon name={section.icon} size={28} className="mb-3" fallback="Home" />
