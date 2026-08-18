@@ -1,88 +1,16 @@
 import { useEffect, useRef, useState, useCallback } from "react"
-import { ArrowDown } from "lucide-react"
 
 const RENDER_IMAGE = "/hero-before.webp"
 const REAL_IMAGE = "/hero-after.webp"
 
 export function Hero() {
-  const contentRef = useRef<HTMLDivElement>(null)
   const heroRef = useRef<HTMLElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
-  const [animationComplete, setAnimationComplete] = useState(false)
-  const accumulatedScrollRef = useRef(0)
-  const lastTouchY = useRef<number>(0)
 
   const [position, setPosition] = useState(50)
   const [viewportWidth, setViewportWidth] = useState(0)
   const draggingRef = useRef(false)
   const compareRef = useRef<HTMLDivElement>(null)
-
-  const applyTransform = (newProgress: number) => {
-    if (contentRef.current) {
-      const baseOffset = window.innerWidth >= 768 ? -40 : -32
-      const translateY = baseOffset + newProgress * 200
-      const rotationX = newProgress * 45
-      const scale = 1 - newProgress * 0.3
-      contentRef.current.style.transform = `translateY(${translateY}px) rotateX(${rotationX}deg) scale(${scale})`
-    }
-  }
-
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      const atTopOfPage = window.scrollY === 0
-      if (draggingRef.current) return
-
-      if (atTopOfPage && !animationComplete) {
-        e.preventDefault()
-        accumulatedScrollRef.current = Math.max(0, Math.min(700, accumulatedScrollRef.current + e.deltaY))
-        const newProgress = Math.max(0, Math.min(1, accumulatedScrollRef.current / 700))
-        if (newProgress >= 1) setAnimationComplete(true)
-        applyTransform(newProgress)
-      } else if (atTopOfPage && animationComplete && e.deltaY < 0) {
-        e.preventDefault()
-        accumulatedScrollRef.current = Math.max(0, Math.min(700, accumulatedScrollRef.current + e.deltaY))
-        const newProgress = Math.max(0, Math.min(1, accumulatedScrollRef.current / 700))
-        if (newProgress < 1) setAnimationComplete(false)
-        applyTransform(newProgress)
-      }
-    }
-
-    const handleTouchStart = (e: TouchEvent) => {
-      lastTouchY.current = e.touches[0].clientY
-    }
-
-    const handleTouchMove = (e: TouchEvent) => {
-      if (draggingRef.current) return
-      const atTopOfPage = window.scrollY === 0
-      const currentTouchY = e.touches[0].clientY
-      const deltaY = lastTouchY.current - currentTouchY
-
-      if (atTopOfPage && !animationComplete) {
-        e.preventDefault()
-        accumulatedScrollRef.current = Math.max(0, Math.min(700, accumulatedScrollRef.current + deltaY * 3))
-        const newProgress = Math.max(0, Math.min(1, accumulatedScrollRef.current / 700))
-        if (newProgress >= 1) setAnimationComplete(true)
-        applyTransform(newProgress)
-      } else if (atTopOfPage && animationComplete && deltaY < 0) {
-        e.preventDefault()
-        accumulatedScrollRef.current = Math.max(0, Math.min(700, accumulatedScrollRef.current + deltaY * 3))
-        const newProgress = Math.max(0, Math.min(1, accumulatedScrollRef.current / 700))
-        if (newProgress < 1) setAnimationComplete(false)
-        applyTransform(newProgress)
-      }
-      lastTouchY.current = currentTouchY
-    }
-
-    window.addEventListener("wheel", handleWheel, { passive: false })
-    window.addEventListener("touchstart", handleTouchStart, { passive: false })
-    window.addEventListener("touchmove", handleTouchMove, { passive: false })
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel)
-      window.removeEventListener("touchstart", handleTouchStart)
-      window.removeEventListener("touchmove", handleTouchMove)
-    }
-  }, [animationComplete])
 
   const updateFromClientX = useCallback((clientX: number) => {
     const el = compareRef.current || heroRef.current
@@ -176,17 +104,9 @@ export function Hero() {
       </div>
 
       {/* Title */}
-      <div
-        ref={contentRef}
-        className="container mx-auto px-6 md:px-12 pt-16 md:pt-20 relative z-10 pointer-events-none -translate-y-8 md:-translate-y-10"
-        style={{
-          willChange: "transform",
-          perspective: "1000px",
-          transformStyle: "preserve-3d",
-        }}
-      >
+      <div className="container mx-auto px-4 md:px-12 pt-20 pb-10 md:pt-20 md:pb-0 relative z-10 pointer-events-none">
         <div className="flex flex-col items-center">
-          <p className="text-[10px] sm:text-xs tracking-[0.45em] uppercase text-center text-white/70 mb-6">
+          <p className="text-[10px] sm:text-xs tracking-[0.45em] uppercase text-center text-white/70 mb-4 md:mb-6">
             Архитектурное бюро
           </p>
 
@@ -194,19 +114,19 @@ export function Hero() {
             <span className="text-2xl sm:text-4xl lg:text-5xl font-light tracking-[0.16em] leading-[1.3]">
               Интерьер, который
             </span>
-            <span className="mt-3 md:mt-4 text-2xl sm:text-4xl lg:text-5xl font-light tracking-[0.16em] leading-[1.3] text-orange-200">
+            <span className="mt-2 md:mt-4 text-2xl sm:text-4xl lg:text-5xl font-light tracking-[0.16em] leading-[1.3] text-orange-200">
               совпадает с проектом
             </span>
           </h1>
 
-          <p className="text-white/75 text-sm md:text-base mt-7 text-center max-w-md">
+          <p className="text-white/75 text-sm md:text-base mt-4 md:mt-7 text-center max-w-md">
             Потяните бегунок — сравните нашу визуализацию с готовой реализацией
           </p>
 
           {/* Mobile compare card */}
           <div
             ref={compareRef}
-            className="md:hidden pointer-events-auto relative mt-6 w-full max-w-sm aspect-[4/3] overflow-hidden rounded-xl shadow-2xl touch-none"
+            className="md:hidden pointer-events-auto relative mt-5 w-screen -mx-4 aspect-[3/4] max-h-[52vh] overflow-hidden shadow-2xl touch-none"
             onMouseDown={(e) => {
               e.preventDefault()
               draggingRef.current = true
@@ -220,14 +140,14 @@ export function Hero() {
             <img
               src={REAL_IMAGE}
               alt="Реализация интерьера"
-              className="absolute inset-0 w-full h-full object-contain bg-black"
+              className="absolute inset-0 w-full h-full object-cover bg-black"
               draggable={false}
             />
             <div className="absolute inset-0 overflow-hidden" style={{ width: `${position}%` }}>
               <img
                 src={RENDER_IMAGE}
                 alt="Проект — визуализация"
-                className="absolute inset-0 h-full object-contain bg-black max-w-none"
+                className="absolute inset-0 h-full object-cover bg-black max-w-none"
                 style={{ width: viewportWidth || "100%" }}
                 draggable={false}
               />
@@ -236,8 +156,8 @@ export function Hero() {
               className="absolute top-0 bottom-0 w-0.5 bg-white/90"
               style={{ left: `${position}%`, transform: "translateX(-50%)" }}
             >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-xl flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-foreground">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white shadow-xl flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-foreground">
                   <path d="M9 7L5 12l4 5M15 7l4 5-4 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
@@ -252,18 +172,12 @@ export function Hero() {
 
           <a
             href="#contact"
-            className="pointer-events-auto mt-8 inline-flex items-center gap-3 rounded-full bg-white text-black px-8 py-3.5 text-sm tracking-wide hover:bg-orange-200 transition-colors duration-300"
+            className="pointer-events-auto mt-6 md:mt-8 inline-flex items-center gap-3 rounded-full bg-white text-black px-8 py-3.5 text-sm tracking-wide hover:bg-orange-200 transition-colors duration-300"
           >
             Оставить заявку
           </a>
         </div>
       </div>
-
-      {animationComplete && (
-        <div className="absolute bottom-8 md:bottom-28 left-1/2 -translate-x-1/2 animate-bounce z-30 pointer-events-none">
-          <ArrowDown className="w-5 h-5 text-white/70" />
-        </div>
-      )}
     </section>
   )
 }
