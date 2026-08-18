@@ -7,7 +7,7 @@ const data: DirectionData = {
   highlight: "частных домов",
   intro:
     "Проектируем частные дома под ключ — от эскизной концепции до рабочей документации и авторского надзора за строительством. Создаём дома, в которых удобно и красиво жить.",
-  heroImage: "/images/hously-1.png",
+  heroImage: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6c46d1b2-4ef9-4220-9f2a-f2b8769f7675.jpg",
   benefits: [
     { icon: "Home", title: "Индивидуальный проект", description: "Дом проектируется под ваш участок, образ жизни и бюджет — без типовых решений." },
     { icon: "FileText", title: "Полная документация", description: "Готовый комплект чертежей для получения разрешений и строительства без ошибок." },
@@ -42,10 +42,10 @@ const data: DirectionData = {
         "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/4458c4c4-461b-4765-8d8c-21253c17ef60.jpg",
       ],
     },
-    { title: "Резиденция в сосновом лесу", location: "Подмосковье", year: "2024", image: "/images/hously-1.png" },
-    { title: "Вилла у моря", location: "Сочи", year: "2023", image: "/images/hously-3.png" },
-    { title: "Дом с панорамным остеклением", location: "Новая Рига", year: "2024", image: "/images/exterior.png" },
-    { title: "Загородный дом в стиле барнхаус", location: "Истра", year: "2023", image: "/images/hously-4.png" },
+    { title: "Дом в КП «Заповедник»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6f7b6335-0da3-4e2c-984b-611d883688cd.jpg" },
+    { title: "Фасад дома, КП «Заповедник»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/dffba14b-96e5-40cc-b443-456c8a923701.jpg" },
+    { title: "Входная группа, КП «Заповедник»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/f1cdb40b-ddf1-43f1-ae1d-eb82def15681.png" },
+    { title: "Терраса дома, КП «Палникс»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/7c0b7be0-2285-41d9-a5f7-32488bd4b18f.jpg" },
   ],
 }
 
