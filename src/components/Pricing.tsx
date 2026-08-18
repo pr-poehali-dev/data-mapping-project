@@ -11,7 +11,7 @@ const sectionCovers: Record<string, string | undefined> = {
 }
 
 const serviceOptions = [
-  { id: "architecture", label: "Архитектура дома", pricePerM2: 800 },
+  { id: "architecture", label: "Архитектура дома", pricePerM2: 1000 },
   { id: "interior", label: "Дизайн интерьера", pricePerM2: 5000 },
   { id: "landscape", label: "Ландшафтный дизайн", pricePerM2: 300 },
 ]
