@@ -1,7 +1,44 @@
 import json
 import os
 import re
+import smtplib
+from email.message import EmailMessage
+
 import psycopg2
+
+
+def send_email(name: str, phone: str, email: str, message: str) -> None:
+    host = os.environ.get('SMTP_HOST')
+    user = os.environ.get('SMTP_USER')
+    password = os.environ.get('SMTP_PASSWORD')
+    to_addr = os.environ.get('LEADS_EMAIL')
+    if not (host and user and password and to_addr):
+        return
+
+    port = int(os.environ.get('SMTP_PORT') or 465)
+
+    msg = EmailMessage()
+    msg['Subject'] = f'Новая заявка с сайта — {name}'
+    msg['From'] = user
+    msg['To'] = to_addr
+    if email:
+        msg['Reply-To'] = email
+    msg.set_content(
+        f'Имя: {name}\n'
+        f'Телефон: {phone}\n'
+        f'Email: {email or "—"}\n\n'
+        f'Сообщение:\n{message or "—"}'
+    )
+
+    if port == 465:
+        with smtplib.SMTP_SSL(host, port, timeout=10) as server:
+            server.login(user, password)
+            server.send_message(msg)
+    else:
+        with smtplib.SMTP(host, port, timeout=10) as server:
+            server.starttls()
+            server.login(user, password)
+            server.send_message(msg)
 
 
 def handler(event: dict, context) -> dict:
@@ -73,6 +110,11 @@ def handler(event: dict, context) -> dict:
         cur.close()
     finally:
         conn.close()
+
+    try:
+        send_email(name, phone, email, message)
+    except Exception as e:
+        print(f'Email send failed: {e}')
 
     return {
         'statusCode': 200,
