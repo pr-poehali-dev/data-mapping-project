@@ -2,7 +2,7 @@ export function Footer() {
   return (
     <footer className="py-16 md:py-24 border-t border-border">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
+        <div className="grid md:grid-cols-4 gap-8 md:gap-12 mb-16">
           {/* Directions */}
           <div>
             <h4 className="text-sm font-medium mb-4">Направления</h4>

@@ -109,7 +109,7 @@ export function Pricing() {
             <p className="text-foreground/60 text-sm tracking-[0.3em] uppercase mb-4">Калькулятор</p>
             <h3 className="text-3xl md:text-4xl font-medium mb-12 tracking-tight">Рассчитайте стоимость проекта</h3>
 
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
               {/* Left: controls */}
               <div className="space-y-10">
                 {/* Area slider */}

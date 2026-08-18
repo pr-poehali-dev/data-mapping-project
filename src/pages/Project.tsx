@@ -115,7 +115,7 @@ export default function Project() {
           </div>
 
           {images.length > 1 && (
-            <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-3 mt-3 md:mt-4">
+            <div className="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-3 mt-3 md:mt-4">
               {images.map((src, i) => (
                 <button
                   key={i}
@@ -135,7 +135,7 @@ export default function Project() {
 
       <section className="pb-24 md:pb-32">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
             <div className="lg:col-span-2">
               <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-5">О проекте</h2>
               <p className="text-muted-foreground text-lg leading-relaxed">{project.description}</p>

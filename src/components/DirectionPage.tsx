@@ -43,7 +43,7 @@ export function DirectionPage({ data }: { data: DirectionData }) {
       {/* Hero */}
       <section className="relative pt-40 pb-24 md:pt-52 md:pb-32 overflow-hidden">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
             <div>
               <Link
                 to="/#services"
