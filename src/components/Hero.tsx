@@ -15,6 +15,7 @@ export function Hero() {
   const [position, setPosition] = useState(50)
   const [viewportWidth, setViewportWidth] = useState(0)
   const draggingRef = useRef(false)
+  const compareRef = useRef<HTMLDivElement>(null)
 
   const applyTransform = (newProgress: number) => {
     if (contentRef.current) {
@@ -84,7 +85,7 @@ export function Hero() {
   }, [animationComplete])
 
   const updateFromClientX = useCallback((clientX: number) => {
-    const el = heroRef.current
+    const el = compareRef.current || heroRef.current
     if (!el) return
     const rect = el.getBoundingClientRect()
     const pct = ((clientX - rect.left) / rect.width) * 100
@@ -105,7 +106,8 @@ export function Hero() {
       draggingRef.current = false
     }
     const onResize = () => {
-      if (heroRef.current) setViewportWidth(heroRef.current.offsetWidth)
+      const el = compareRef.current || heroRef.current
+      if (el) setViewportWidth(el.offsetWidth)
     }
     onResize()
     window.addEventListener("mousemove", onMove)
@@ -129,10 +131,10 @@ export function Hero() {
         <img
           src={REAL_IMAGE}
           alt="Реализация интерьера"
-          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none scale-110 blur-lg md:scale-100 md:blur-0"
           draggable={false}
         />
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ width: `${position}%` }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block" style={{ width: `${position}%` }}>
           <img
             src={RENDER_IMAGE}
             alt="Проект — визуализация"
@@ -141,20 +143,20 @@ export function Hero() {
             draggable={false}
           />
         </div>
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-black/45 md:bg-black/45" />
       </div>
 
       {/* Labels */}
-      <span className="absolute bottom-8 left-6 md:bottom-10 md:left-12 z-20 rounded-full bg-black/60 text-white text-[10px] md:text-xs tracking-widest uppercase px-4 py-1.5 pointer-events-none">
+      <span className="hidden md:block absolute bottom-10 left-12 z-20 rounded-full bg-black/60 text-white text-xs tracking-widest uppercase px-4 py-1.5 pointer-events-none">
         Проект
       </span>
-      <span className="absolute bottom-8 right-6 md:bottom-10 md:right-12 z-20 rounded-full bg-black/60 text-white text-[10px] md:text-xs tracking-widest uppercase px-4 py-1.5 pointer-events-none">
+      <span className="hidden md:block absolute bottom-10 right-12 z-20 rounded-full bg-black/60 text-white text-xs tracking-widest uppercase px-4 py-1.5 pointer-events-none">
         Реализация
       </span>
 
       {/* Drag handle */}
       <div
-        className="absolute top-0 bottom-0 w-0.5 bg-white/80 z-20 cursor-ew-resize"
+        className="hidden md:block absolute top-0 bottom-0 w-0.5 bg-white/80 z-20 cursor-ew-resize"
         style={{ left: `${position}%`, transform: "translateX(-50%)" }}
         onMouseDown={(e) => {
           e.preventDefault()
@@ -200,6 +202,53 @@ export function Hero() {
           <p className="text-white/75 text-sm md:text-base mt-7 text-center max-w-md">
             Потяните бегунок — сравните нашу визуализацию с готовой реализацией
           </p>
+
+          {/* Mobile compare card */}
+          <div
+            ref={compareRef}
+            className="md:hidden pointer-events-auto relative mt-6 w-full max-w-sm aspect-[4/3] overflow-hidden rounded-xl shadow-2xl touch-none"
+            onMouseDown={(e) => {
+              e.preventDefault()
+              draggingRef.current = true
+              updateFromClientX(e.clientX)
+            }}
+            onTouchStart={(e) => {
+              draggingRef.current = true
+              if (e.touches[0]) updateFromClientX(e.touches[0].clientX)
+            }}
+          >
+            <img
+              src={REAL_IMAGE}
+              alt="Реализация интерьера"
+              className="absolute inset-0 w-full h-full object-contain bg-black"
+              draggable={false}
+            />
+            <div className="absolute inset-0 overflow-hidden" style={{ width: `${position}%` }}>
+              <img
+                src={RENDER_IMAGE}
+                alt="Проект — визуализация"
+                className="absolute inset-0 h-full object-contain bg-black max-w-none"
+                style={{ width: viewportWidth || "100%" }}
+                draggable={false}
+              />
+            </div>
+            <div
+              className="absolute top-0 bottom-0 w-0.5 bg-white/90"
+              style={{ left: `${position}%`, transform: "translateX(-50%)" }}
+            >
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-xl flex items-center justify-center">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-foreground">
+                  <path d="M9 7L5 12l4 5M15 7l4 5-4 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+            </div>
+            <span className="absolute bottom-3 left-3 rounded-full bg-black/60 text-white text-[10px] tracking-widest uppercase px-3 py-1">
+              Проект
+            </span>
+            <span className="absolute bottom-3 right-3 rounded-full bg-black/60 text-white text-[10px] tracking-widest uppercase px-3 py-1">
+              Реализация
+            </span>
+          </div>
 
           <a
             href="#contact"
