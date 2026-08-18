@@ -5,6 +5,7 @@ import { Footer } from "./Footer"
 import { HighlightedText } from "./HighlightedText"
 import { Lightbox } from "./Lightbox"
 import { InteriorPricing } from "./InteriorPricing"
+import { SectionPricing } from "./SectionPricing"
 import Icon from "./ui/icon"
 
 export interface DirectionData {
@@ -111,6 +112,8 @@ export function DirectionPage({ data }: { data: DirectionData }) {
         <div className="container mx-auto px-6 md:px-12">
           {data.portfolioType === "interior" ? (
             <InteriorPricing />
+          ) : data.portfolioType === "architecture" || data.portfolioType === "landscape" ? (
+            <SectionPricing id={data.portfolioType} />
           ) : (
           <>
           <div className="max-w-2xl mb-12">

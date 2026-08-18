@@ -1,36 +1,8 @@
 import { useState } from "react"
 import { HighlightedText } from "./HighlightedText"
 import { InteriorPricing } from "./InteriorPricing"
+import { pricingSections } from "@/data/pricing"
 import Icon from "./ui/icon"
-
-const pricingSections = [
-  {
-    id: "architecture",
-    title: "Архитектура частных домов",
-    icon: "Home",
-    color: "bg-stone-100",
-    pricePerM2: 800,
-    items: [
-      { name: "Эскизный проект (концепция, планировки, фасады)", price: "от 800 ₽/м²" },
-      { name: "Рабочая документация (полный комплект чертежей)", price: "от 600 ₽/м²" },
-      { name: "Авторский надзор за строительством", price: "от 15 000 ₽/выезд" },
-      { name: "Визуализация 3D (до 5 видов)", price: "от 30 000 ₽" },
-    ],
-  },
-  {
-    id: "landscape",
-    title: "Ландшафтный дизайн",
-    icon: "Trees",
-    color: "bg-green-50",
-    pricePerM2: 300,
-    items: [
-      { name: "Концепция участка (зонирование, стиль)", price: "от 150 ₽/м²" },
-      { name: "Полный ландшафтный проект", price: "от 300 ₽/м²" },
-      { name: "Дендроплан и ассортиментная ведомость растений", price: "от 100 ₽/м²" },
-      { name: "Авторский надзор за посадками", price: "от 8 000 ₽/выезд" },
-    ],
-  },
-]
 
 const serviceOptions = [
   { id: "architecture", label: "Архитектура дома", pricePerM2: 800 },
@@ -85,7 +57,7 @@ export function Pricing() {
           {pricingSections.map((section) => (
             <div key={section.id} className="border border-border flex flex-col">
               <div className={`${section.color} p-8`}>
-                <Icon name={section.icon as "Home" | "Trees"} size={32} className="mb-4 text-foreground" />
+                <Icon name={section.icon} size={32} className="mb-4 text-foreground" fallback="Home" />
                 <h3 className="text-xl font-medium mb-1">{section.title}</h3>
                 <p className="text-muted-foreground text-sm">от {formatPrice(section.pricePerM2)}/м²</p>
               </div>
