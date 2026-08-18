@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { Plus } from "lucide-react"
+import { Plus, ArrowRight } from "lucide-react"
 
-const faqs = [
+const faqs: { question: string; answer: string; cta?: boolean }[] = [
   {
     question: "Будет ли дополнительная скидка, если заказать два проекта по разным направлениям?",
     answer:
@@ -31,6 +31,7 @@ const faqs = [
     question: "Как заказать проект?",
     answer:
       "Напишите нам или позвоните — проведём бесплатную консультацию или назначим встречу в офисе либо на объекте, чтобы обсудить задачу. После этого подготовим предложение.",
+    cta: true,
   },
 ]
 
@@ -74,6 +75,15 @@ export function FAQ() {
                 }`}
               >
                 <p className="text-muted-foreground leading-relaxed pb-6 pr-0 sm:pr-12">{faq.answer}</p>
+                {faq.cta && (
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 text-sm tracking-wide hover:bg-foreground/90 transition-colors duration-300 group mb-8"
+                  >
+                    Оставить заявку
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                )}
               </div>
             </div>
           ))}
