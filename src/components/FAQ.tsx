@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Plus, ArrowRight } from "lucide-react"
+import { Plus, ArrowRight, Phone } from "lucide-react"
 
 const faqs: { question: string; answer: string; cta?: boolean }[] = [
   {
@@ -97,6 +97,13 @@ export function FAQ() {
           >
             Оставить заявку
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href="tel:+79220299901"
+            className="inline-flex items-center gap-2.5 border border-foreground/25 px-6 py-4 text-sm text-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
+          >
+            <Phone className="w-4 h-4" />
+            +7 922 029-99-01
           </a>
         </div>
       </div>
