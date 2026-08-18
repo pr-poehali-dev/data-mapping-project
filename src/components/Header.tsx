@@ -1,9 +1,11 @@
 import { useState, useEffect, MouseEvent } from "react"
-import { Phone } from "lucide-react"
+import { Phone, Send, MessageCircle } from "lucide-react"
 import { cn } from "../lib/utils"
 
 const PHONE = "+7 922 029-99-01"
 const PHONE_HREF = "tel:+79220299901"
+const TELEGRAM_HREF = "https://t.me/+79220299901"
+const MAX_HREF = "https://max.ru/u/79220299901"
 
 const NAV_ITEMS = [
   { label: "Главная", href: "/#hero", section: "hero" },
@@ -107,10 +109,22 @@ export function Header() {
               {PHONE}
             </a>
             <a
-              href="/#contact"
-              className="ml-2 px-4 py-1.5 text-[12px] tracking-wide rounded-full bg-white text-black hover:bg-orange-200 transition-colors duration-300"
+              href={TELEGRAM_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 inline-flex items-center gap-2 px-4 py-1.5 text-[12px] tracking-wide rounded-full bg-white text-black hover:bg-orange-200 transition-colors duration-300"
             >
-              Связаться
+              <Send className="w-3.5 h-3.5" />
+              Telegram
+            </a>
+            <a
+              href={MAX_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 inline-flex items-center gap-2 px-4 py-1.5 text-[12px] tracking-wide rounded-full bg-white text-black hover:bg-orange-200 transition-colors duration-300"
+            >
+              <MessageCircle className="w-3.5 h-3.5" />
+              MAX
             </a>
           </nav>
 
@@ -176,11 +190,24 @@ export function Header() {
               {PHONE}
             </a>
             <a
-              href="/#contact"
-              className="px-7 py-3 text-sm rounded-full border border-white/30 text-white hover:bg-white hover:text-black transition-colors duration-300"
+              href={TELEGRAM_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-7 py-3 text-sm rounded-full border border-white/30 text-white hover:bg-white hover:text-black transition-colors duration-300"
               onClick={closeMobileMenu}
             >
-              Связаться
+              <Send className="w-4 h-4" />
+              Telegram
+            </a>
+            <a
+              href={MAX_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-7 py-3 text-sm rounded-full border border-white/30 text-white hover:bg-white hover:text-black transition-colors duration-300"
+              onClick={closeMobileMenu}
+            >
+              <MessageCircle className="w-4 h-4" />
+              MAX
             </a>
           </div>
         </div>
