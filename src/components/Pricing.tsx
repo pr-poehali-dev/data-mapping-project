@@ -97,6 +97,7 @@ export function Pricing() {
                   Оставить заявку
                   <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
                 </a>
+                <p className="text-xs text-muted-foreground leading-relaxed mt-2">{section.note}</p>
               </div>
             </div>
           ))}
