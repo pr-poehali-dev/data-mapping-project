@@ -84,6 +84,27 @@ export const portfolioProjects: PortfolioProject[] = [
     scope: ["Планировочные решения", "Дизайн-проект", "3D-визуализация", "Подбор материалов и мебели", "Авторский надзор"],
   },
   {
+    id: 11,
+    title: "Участок в КП «Заповедник»",
+    type: "landscape",
+    category: "Ландшафтный дизайн",
+    location: "Екатеринбург",
+    year: "2024",
+    area: "12 соток",
+    duration: "10 месяцев",
+    image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6f7b6335-0da3-4e2c-984b-611d883688cd.jpg",
+    gallery: [
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6f7b6335-0da3-4e2c-984b-611d883688cd.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/fd9ca075-372b-428b-b2fa-9515bf77a9dc.png",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/f1cdb40b-ddf1-43f1-ae1d-eb82def15681.png",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/563124be-3054-4b90-b011-9cc25775b01c.png",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/2ece1b63-cb43-401a-98d1-b5b4029583e5.png",
+    ],
+    description:
+      "Ландшафтный проект участка в КП «Заповедник» в Екатеринбурге. Сложный рельеф с перепадами высот решён многоуровневой террасой из ДПК, подпорными стенами и широкими ступенями. Фасад дома и участок проектировались параллельно — единая палитра камня, дерева и графита. На участке: зона барбекю с обеденной группой, лаунж с шезлонгами среди сосен, газон, теплица и грядки, ландшафтное освещение со светящимися шарами и болларды по дорожкам.",
+    scope: ["Концепция участка", "Вертикальная планировка", "Дендроплан", "Ландшафтное освещение", "Фасадные решения", "Авторский надзор"],
+  },
+  {
     id: 1,
     title: "Резиденция в сосновом лесу",
     type: "architecture",
