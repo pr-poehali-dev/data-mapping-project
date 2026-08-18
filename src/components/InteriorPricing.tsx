@@ -99,8 +99,11 @@ export function InteriorPricing() {
   return (
     <div>
       <div className="max-w-3xl mb-12">
-        <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-4">Дизайн интерьеров</p>
-        <h3 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">Создаём пространство, в котором хочется жить</h3>
+        <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-4">Основное направление</p>
+        <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-5">Дизайн интерьера</h3>
+        <p className="border-l-2 border-orange-400 pl-5 text-xl md:text-2xl font-light italic leading-snug tracking-tight mb-5">
+          Создаём пространство, в котором хочется жить
+        </p>
         <p className="text-muted-foreground leading-relaxed">
           Три гибких формата сотрудничества: от полного погружения в проект до динамичного интерактивного сопровождения. Выберите тот, который подходит именно вам.
         </p>
