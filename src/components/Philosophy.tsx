@@ -74,6 +74,9 @@ export function Philosophy() {
                 </blockquote>
                 <p className="text-sm font-medium">Шаламова Татьяна Александровна</p>
                 <p className="text-sm text-muted-foreground mt-1">Основатель и руководитель бюро. Создала бюро в 2013 году.</p>
+                <p className="text-sm text-muted-foreground mt-3 pt-3 border-t border-border">
+                  УрГАХА, магистр 2013 года — «Архитектура жилых и общественных зданий»
+                </p>
               </figcaption>
             </figure>
           </div>
