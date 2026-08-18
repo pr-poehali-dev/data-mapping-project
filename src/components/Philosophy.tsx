@@ -66,7 +66,12 @@ export function Philosophy() {
                 alt="Шаламова Татьяна Александровна — основатель и руководитель бюро"
                 className="opacity-90 relative z-10 w-full h-auto"
               />
-              <figcaption className="mt-4">
+              <figcaption className="mt-5">
+                <blockquote className="border-l border-border pl-4 mb-4">
+                  <p className="font-serif-display italic text-base leading-relaxed text-foreground/90">
+                    «Дом должен быть продолжением человека, а не картинкой из журнала. Поэтому мы начинаем не с планировки, а с разговора.»
+                  </p>
+                </blockquote>
                 <p className="text-sm font-medium">Шаламова Татьяна Александровна</p>
                 <p className="text-sm text-muted-foreground mt-1">Основатель и руководитель бюро. Создала бюро в 2013 году.</p>
               </figcaption>
