@@ -11,13 +11,14 @@ const sectionCovers: Record<string, string | undefined> = {
 }
 
 const serviceOptions = [
-  { id: "architecture", label: "Архитектура дома", pricePerM2: 1000 },
-  { id: "interior", label: "Дизайн интерьера", pricePerM2: 5000 },
-  { id: "landscape", label: "Ландшафтный дизайн", pricePerM2: 300 },
+  { id: "architecture", label: "Архитектура дома", pricePerUnit: 1000, unit: "area" as const },
+  { id: "interior", label: "Дизайн интерьера", pricePerUnit: 5000, unit: "area" as const },
+  { id: "landscape", label: "Ландшафтный дизайн", pricePerUnit: 30000, unit: "plot" as const },
 ]
 
 export function Pricing() {
   const [area, setArea] = useState(150)
+  const [plot, setPlot] = useState(10)
   const [selectedServices, setSelectedServices] = useState<string[]>(["architecture"])
 
   const toggleService = (id: string) => {
@@ -26,9 +27,14 @@ export function Pricing() {
     )
   }
 
+  const servicePrice = (s: (typeof serviceOptions)[number]) =>
+    s.unit === "plot" ? s.pricePerUnit * plot : s.pricePerUnit * area
+
   const totalPrice = serviceOptions
     .filter((s) => selectedServices.includes(s.id))
-    .reduce((sum, s) => sum + s.pricePerM2 * area, 0)
+    .reduce((sum, s) => sum + servicePrice(s), 0)
+
+  const landscapeSelected = selectedServices.includes("landscape")
 
   const formatPrice = (price: number) =>
     price.toLocaleString("ru-RU") + " ₽"
@@ -74,7 +80,7 @@ export function Pricing() {
                 <div className="relative h-full p-8 flex flex-col justify-end text-background">
                   <Icon name={section.icon} size={28} className="mb-3" fallback="Home" />
                   <h3 className="text-xl font-medium mb-1">{section.title}</h3>
-                  <p className="text-sm text-background/80">от {formatPrice(section.pricePerM2)}/м²</p>
+                  <p className="text-sm text-background/80">от {formatPrice(section.pricePerM2)}/{section.unit}</p>
                 </div>
               </div>
               <div className="p-8 flex flex-col gap-4 flex-1">
@@ -126,6 +132,28 @@ export function Pricing() {
                   </div>
                 </div>
 
+                {landscapeSelected && (
+                  <div>
+                    <div className="flex justify-between items-baseline mb-4">
+                      <label className="text-sm tracking-wide text-foreground/70">Площадь участка</label>
+                      <span className="text-2xl font-medium">{plot} сот.</span>
+                    </div>
+                    <input
+                      type="range"
+                      min={4}
+                      max={100}
+                      step={1}
+                      value={plot}
+                      onChange={(e) => setPlot(Number(e.target.value))}
+                      className="w-full accent-orange-400 cursor-pointer"
+                    />
+                    <div className="flex justify-between text-xs text-foreground/40 mt-2">
+                      <span>4 сот.</span>
+                      <span>100 сот.</span>
+                    </div>
+                  </div>
+                )}
+
                 {/* Service toggles */}
                 <div>
                   <p className="text-sm tracking-wide text-foreground/70 mb-4">Услуги</p>
@@ -142,7 +170,7 @@ export function Pricing() {
                       >
                         <span className="text-sm">{s.label}</span>
                         <span className="text-xs text-foreground/50 whitespace-nowrap">
-                          {formatPrice(s.pricePerM2 * area)}
+                          {formatPrice(servicePrice(s))}
                         </span>
                       </button>
                     ))}
@@ -163,7 +191,7 @@ export function Pricing() {
                   </div>
                   {selectedServices.length > 0 && (
                     <p className="text-foreground/40 text-sm">
-                      ориентировочно · {area} м²
+                      ориентировочно · {area} м²{landscapeSelected ? ` · участок ${plot} сот.` : ""}
                     </p>
                   )}
                 </div>

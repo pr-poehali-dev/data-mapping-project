@@ -24,7 +24,7 @@ export function SectionPricing({ id }: { id: "architecture" | "landscape" }) {
             <Icon name={section.icon} size={28} className="mb-3" fallback="Home" />
             <h3 className="text-xl font-medium mb-1">{section.title}</h3>
             <p className="text-sm text-background/80">
-              от {section.pricePerM2.toLocaleString("ru-RU")} ₽/м²
+              от {section.pricePerM2.toLocaleString("ru-RU")} ₽/{section.unit}
             </p>
           </div>
         </div>
