@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from "react"
 import { ArrowDown } from "lucide-react"
 
-const RENDER_IMAGE = "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/b0331e34-ee8c-42af-8dba-3adba449a110.jpg"
-const REAL_IMAGE = "/hero-after.jpg"
+const RENDER_IMAGE = "/hero-before.webp"
+const REAL_IMAGE = "/hero-after.webp"
 
 export function Hero() {
   const contentRef = useRef<HTMLDivElement>(null)
