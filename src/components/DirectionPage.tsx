@@ -4,6 +4,7 @@ import { Header } from "./Header"
 import { Footer } from "./Footer"
 import { HighlightedText } from "./HighlightedText"
 import { Lightbox } from "./Lightbox"
+import { InteriorPricing } from "./InteriorPricing"
 import Icon from "./ui/icon"
 
 export interface DirectionData {
@@ -108,6 +109,10 @@ export function DirectionPage({ data }: { data: DirectionData }) {
       {/* Services / price */}
       <section className="py-24 md:py-32 bg-secondary/50">
         <div className="container mx-auto px-6 md:px-12">
+          {data.portfolioType === "interior" ? (
+            <InteriorPricing />
+          ) : (
+          <>
           <div className="max-w-2xl mb-12">
             <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Стоимость</p>
             <h2 className="text-4xl md:text-5xl font-medium tracking-tight">Что входит и сколько стоит</h2>
@@ -123,6 +128,8 @@ export function DirectionPage({ data }: { data: DirectionData }) {
               </div>
             ))}
           </div>
+          </>
+          )}
         </div>
       </section>
 
