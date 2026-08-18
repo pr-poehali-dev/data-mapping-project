@@ -48,6 +48,27 @@ export const portfolioProjects: PortfolioProject[] = [
     scope: ["Эскизный проект", "Рабочая документация", "3D-визуализация", "Ландшафт участка", "Авторский надзор"],
   },
   {
+    id: 10,
+    title: "Квартира в клубном доме «Ленина 8»",
+    type: "interior",
+    category: "Дизайн интерьера",
+    location: "Екатеринбург",
+    year: "2024",
+    area: "118 м²",
+    duration: "7 месяцев",
+    image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/2fa71917-c06a-4a5e-84e4-dea3b7d96a01.jpg",
+    gallery: [
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/2fa71917-c06a-4a5e-84e4-dea3b7d96a01.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/1aeb7cd0-fd53-468a-93ae-48947d0d94cc.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/f3ed82e0-ec3e-415c-b65f-df4bc34b2595.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/e50441aa-3632-4e2f-a308-8c6396c8260f.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/f3691c2d-46d0-4537-858f-c4136f84c4ab.jpg",
+    ],
+    description:
+      "Проект интерьера квартиры 118 м² в клубном доме «Ленина 8» в Екатеринбурге. Современный стиль в светлой бежевой палитре: панели из натурального камня с выразительным рисунком, рифлёные поверхности, скрытая подсветка и трековое освещение. Ключевые акценты заказчика — остров-бар из оникса, белое пианино в гостиной и объединённая зона кухни-гостиной-столовой.",
+    scope: ["Планировочные решения", "Дизайн-проект", "3D-визуализация", "Подбор материалов и мебели", "Авторский надзор"],
+  },
+  {
     id: 1,
     title: "Резиденция в сосновом лесу",
     type: "architecture",
