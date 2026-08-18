@@ -67,8 +67,8 @@ export function Philosophy() {
                 className="opacity-90 relative z-10 w-full h-auto"
               />
               <figcaption className="mt-5">
-                <blockquote className="border-l border-border pl-4 mb-4">
-                  <p className="font-serif-display italic text-base leading-relaxed text-foreground/90">
+                <blockquote className="border-l-2 border-orange-200 pl-4 mb-4">
+                  <p className="font-serif-display italic text-base leading-relaxed text-orange-200">
                     «Дом должен быть продолжением человека, а не картинкой из журнала. Поэтому мы начинаем не с планировки, а с разговора.»
                   </p>
                 </blockquote>
