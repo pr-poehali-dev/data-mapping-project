@@ -88,6 +88,17 @@ export function FAQ() {
             </div>
           ))}
         </div>
+
+        <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <p className="text-muted-foreground">Не нашли ответ на свой вопрос?</p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 text-sm tracking-wide hover:bg-foreground/90 transition-colors duration-300 group"
+          >
+            Оставить заявку
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
       </div>
     </section>
   )
