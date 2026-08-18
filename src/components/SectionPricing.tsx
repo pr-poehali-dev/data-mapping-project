@@ -1,9 +1,12 @@
 import { pricingSections } from "@/data/pricing"
+import { portfolioProjects } from "@/data/portfolio"
 import Icon from "./ui/icon"
 
 export function SectionPricing({ id }: { id: "architecture" | "landscape" }) {
   const section = pricingSections.find((s) => s.id === id)
   if (!section) return null
+
+  const cover = portfolioProjects.find((p) => p.type === id)?.image
 
   return (
     <div>
@@ -14,12 +17,16 @@ export function SectionPricing({ id }: { id: "architecture" | "landscape" }) {
       </div>
 
       <div className="border border-border bg-background max-w-3xl">
-        <div className={`${section.color} p-8`}>
-          <Icon name={section.icon} size={32} className="mb-4 text-foreground" fallback="Home" />
-          <h3 className="text-xl font-medium mb-1">{section.title}</h3>
-          <p className="text-muted-foreground text-sm">
-            от {section.pricePerM2.toLocaleString("ru-RU")} ₽/м²
-          </p>
+        <div className="relative aspect-[16/7] overflow-hidden">
+          {cover && <img src={cover} alt={section.title} className="absolute inset-0 w-full h-full object-cover" />}
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent" />
+          <div className="relative h-full p-8 flex flex-col justify-end text-background">
+            <Icon name={section.icon} size={28} className="mb-3" fallback="Home" />
+            <h3 className="text-xl font-medium mb-1">{section.title}</h3>
+            <p className="text-sm text-background/80">
+              от {section.pricePerM2.toLocaleString("ru-RU")} ₽/м²
+            </p>
+          </div>
         </div>
         <div className="p-8 flex flex-col gap-4">
           {section.items.map((item) => (

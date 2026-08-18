@@ -2,7 +2,13 @@ import { useState } from "react"
 import { HighlightedText } from "./HighlightedText"
 import { InteriorPricing } from "./InteriorPricing"
 import { pricingSections } from "@/data/pricing"
+import { portfolioProjects } from "@/data/portfolio"
 import Icon from "./ui/icon"
+
+const sectionCovers: Record<string, string | undefined> = {
+  architecture: portfolioProjects.find((p) => p.type === "architecture")?.image,
+  landscape: portfolioProjects.find((p) => p.type === "landscape")?.image,
+}
 
 const serviceOptions = [
   { id: "architecture", label: "Архитектура дома", pricePerM2: 800 },
@@ -56,10 +62,20 @@ export function Pricing() {
         <div className="grid md:grid-cols-2 gap-6 mb-24">
           {pricingSections.map((section) => (
             <div key={section.id} className="border border-border flex flex-col">
-              <div className={`${section.color} p-8`}>
-                <Icon name={section.icon} size={32} className="mb-4 text-foreground" fallback="Home" />
-                <h3 className="text-xl font-medium mb-1">{section.title}</h3>
-                <p className="text-muted-foreground text-sm">от {formatPrice(section.pricePerM2)}/м²</p>
+              <div className="relative aspect-[16/7] overflow-hidden">
+                {sectionCovers[section.id] && (
+                  <img
+                    src={sectionCovers[section.id]}
+                    alt={section.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent" />
+                <div className="relative h-full p-8 flex flex-col justify-end text-background">
+                  <Icon name={section.icon} size={28} className="mb-3" fallback="Home" />
+                  <h3 className="text-xl font-medium mb-1">{section.title}</h3>
+                  <p className="text-sm text-background/80">от {formatPrice(section.pricePerM2)}/м²</p>
+                </div>
               </div>
               <div className="p-8 flex flex-col gap-4 flex-1">
                 {section.items.map((item) => (
