@@ -7,7 +7,7 @@ const data: DirectionData = {
   highlight: "интерьеров",
   intro:
     "Создаём интерьеры, которые отражают ваш характер и делают жизнь удобнее. Разрабатываем полный дизайн-проект — от концепции до подбора мебели и авторского надзора за отделкой.",
-  heroImage: "/images/hously-2.png",
+  heroImage: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/2fa71917-c06a-4a5e-84e4-dea3b7d96a01.jpg",
   benefits: [
     { icon: "Armchair", title: "Стиль под вас", description: "Интерьер, который отражает ваш вкус и подходит именно под ваш образ жизни." },
     { icon: "Ruler", title: "Продуманная эргономика", description: "Правильные планировки, освещение и хранение — красиво и удобно каждый день." },
@@ -26,10 +26,10 @@ const data: DirectionData = {
     { name: "Авторский надзор за отделкой", price: "от 10 000 ₽/выезд" },
   ],
   works: [
-    { title: "Интерьер загородного дома", location: "Рублёвское шоссе", year: "2024", image: "/images/hously-2.png" },
-    { title: "Интерьер кухни-гостиной", location: "Барвиха", year: "2024", image: "/images/desk.png" },
-    { title: "Спальня в минималистичном стиле", location: "Москва", year: "2023", image: "/images/hously-3.png" },
-    { title: "Интерьер квартиры-студии", location: "Санкт-Петербург", year: "2023", image: "/images/hously-1.png" },
+    { title: "Кухня-гостиная, «Ленина 8»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/e50441aa-3632-4e2f-a308-8c6396c8260f.jpg" },
+    { title: "Детская, «Ленина 8»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/951f1807-2e9c-4088-9e43-cccbe74f5787.jpg" },
+    { title: "Комната подростка, «Ленина 8»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/2bee2df8-cfab-43c4-9f53-0828ff6d31fb.jpg" },
+    { title: "Санузел, «Ленина 8»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/3d6b77e3-52b5-4079-ac28-a9e0cdecc8d5.jpg" },
   ],
 }
 
