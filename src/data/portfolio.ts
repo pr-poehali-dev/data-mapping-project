@@ -63,6 +63,9 @@ export const portfolioProjects: PortfolioProject[] = [
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/f3ed82e0-ec3e-415c-b65f-df4bc34b2595.jpg",
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/e50441aa-3632-4e2f-a308-8c6396c8260f.jpg",
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/f3691c2d-46d0-4537-858f-c4136f84c4ab.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/02283b53-ac94-48fb-b1c7-9d1e9aba8a88.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/951f1807-2e9c-4088-9e43-cccbe74f5787.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6716df8f-5507-42a4-9e74-90bde1a9a9e8.jpg",
     ],
     description:
       "Проект интерьера квартиры 118 м² в клубном доме «Ленина 8» в Екатеринбурге. Современный стиль в светлой бежевой палитре: панели из натурального камня с выразительным рисунком, рифлёные поверхности, скрытая подсветка и трековое освещение. Ключевые акценты заказчика — остров-бар из оникса, белое пианино в гостиной и объединённая зона кухни-гостиной-столовой.",
