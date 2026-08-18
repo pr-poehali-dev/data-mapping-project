@@ -1,5 +1,9 @@
 import { useState, useEffect, MouseEvent } from "react"
+import { Phone } from "lucide-react"
 import { cn } from "../lib/utils"
+
+const PHONE = "+7 922 029-99-01"
+const PHONE_HREF = "tel:+79220299901"
 
 const NAV_ITEMS = [
   { label: "Главная", href: "/#hero", section: "hero" },
@@ -96,6 +100,13 @@ export function Header() {
               </a>
             ))}
             <a
+              href={PHONE_HREF}
+              className="ml-2 inline-flex items-center gap-2 px-4 py-1.5 text-[12px] tracking-wide rounded-full border border-white/30 text-white hover:bg-white hover:text-black transition-colors duration-300"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              {PHONE}
+            </a>
+            <a
               href="/#contact"
               className="ml-2 px-4 py-1.5 text-[12px] tracking-wide rounded-full bg-white text-black hover:bg-orange-200 transition-colors duration-300"
             >
@@ -103,8 +114,17 @@ export function Header() {
             </a>
           </nav>
 
+          <a
+            href={PHONE_HREF}
+            aria-label="Позвонить"
+            className="md:hidden order-2 ml-auto mr-4 inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-[13px] tracking-wide"
+          >
+            <Phone className="w-4 h-4" />
+            Позвонить
+          </a>
+
           <button
-            className="md:hidden z-[60] text-white order-2 ml-auto"
+            className="md:hidden z-[60] text-white order-3"
             aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -146,13 +166,23 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <a
-            href="/#contact"
-            className="self-start px-7 py-3 text-sm rounded-full bg-white text-black hover:bg-orange-200 transition-colors duration-300"
-            onClick={closeMobileMenu}
-          >
-            Связаться
-          </a>
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href={PHONE_HREF}
+              className="inline-flex items-center gap-2.5 px-7 py-3 text-sm rounded-full bg-white text-black hover:bg-orange-200 transition-colors duration-300"
+              onClick={closeMobileMenu}
+            >
+              <Phone className="w-4 h-4" />
+              {PHONE}
+            </a>
+            <a
+              href="/#contact"
+              className="px-7 py-3 text-sm rounded-full border border-white/30 text-white hover:bg-white hover:text-black transition-colors duration-300"
+              onClick={closeMobileMenu}
+            >
+              Связаться
+            </a>
+          </div>
         </div>
       </div>
     </>
