@@ -54,9 +54,9 @@ export const portfolioProjects: PortfolioProject[] = [
     type: "architecture",
     category: "Архитектура дома",
     location: "Екатеринбург",
-    year: "2024",
+    year: "2026",
     area: "700 м²",
-    duration: "20 месяцев",
+    duration: "5 месяцев",
     image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6c46d1b2-4ef9-4220-9f2a-f2b8769f7675.jpg",
     gallery: [
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6c46d1b2-4ef9-4220-9f2a-f2b8769f7675.jpg",
@@ -70,7 +70,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     description:
       "Двухэтажный частный дом площадью 700 м² в коттеджном посёлке «Палникс» в Екатеринбурге. Современная архитектура с выразительной кровлей, сочетанием тёмного фасада, дерева и натурального камня. Просторный навес для авто, панорамное остекление и продуманная ландшафтная зона с патио и барбекю.",
-    scope: ["Эскизный проект", "Рабочая документация", "3D-визуализация", "Ландшафт участка", "Авторский надзор"],
+    scope: ["Эскизный проект", "Рабочая документация", "3D-визуализация"],
   },
   {
     id: 10,

@@ -29,7 +29,7 @@ const data: DirectionData = {
     {
       title: "Дом в КП «Палникс»",
       location: "Екатеринбург",
-      year: "2024",
+      year: "2026",
       image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6c46d1b2-4ef9-4220-9f2a-f2b8769f7675.jpg",
       gallery: [
         "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6c46d1b2-4ef9-4220-9f2a-f2b8769f7675.jpg",
@@ -45,7 +45,7 @@ const data: DirectionData = {
     { title: "Дом в КП «Заповедник»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6f7b6335-0da3-4e2c-984b-611d883688cd.jpg" },
     { title: "Фасад дома, КП «Заповедник»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/dffba14b-96e5-40cc-b443-456c8a923701.jpg" },
     { title: "Входная группа, КП «Заповедник»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/f1cdb40b-ddf1-43f1-ae1d-eb82def15681.png" },
-    { title: "Терраса дома, КП «Палникс»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/7c0b7be0-2285-41d9-a5f7-32488bd4b18f.jpg" },
+    { title: "Терраса дома, КП «Палникс»", location: "Екатеринбург", year: "2026", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/7c0b7be0-2285-41d9-a5f7-32488bd4b18f.jpg" },
   ],
 }
 
