@@ -38,6 +38,11 @@ export const portfolioProjects: PortfolioProject[] = [
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/49e3ebc8-2f20-4bc6-9fc8-2f2df331b181.png",
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/71619fce-a05b-46f6-8ef7-319362ee3538.jpg",
       "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/cef7fa35-75f0-4a46-9a58-d85bb42d7e96.png",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/b0a0bd19-c7ac-4d3c-878b-014ee2376c48.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6f487d19-4d96-42cd-8b2c-00faeafe9c52.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/e59ef18b-7d00-4b03-a964-7b6351625ba3.png",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/ce9d82a4-bedf-4b33-af05-ce9570fca742.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/8bf489c1-4cb0-4e2c-982e-39eef1614cb2.png",
     ],
     description:
       "Одноэтажный жилой дом площадью 200 м² в спокойной классической стилистике. Светлый штукатурный фасад с рустованными углами и профилированными карнизами, двускатная кровля со фальцевым покрытием графитового цвета, фронтоны с арочными окнами. Главный акцент — просторная открытая веранда на колоннах с зоной отдыха и обеденной группой, выходящая в сад. С противоположной стороны — тёплый гараж, встроенный в общий объём дома, с отдельным входом-тамбуром и остеклённой галереей, соединяющей его с жилой частью. Панорамные окна в пол наполняют светом гостиную и спальни, с задней стороны дома организована деревянная терраса, ведущая в сад. Срок разработки эскизного проекта — 1 месяц.",
