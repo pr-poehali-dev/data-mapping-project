@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"
 import { ArrowUpRight } from "lucide-react"
 import { portfolioProjects, PortfolioType } from "../data/portfolio"
 
-const DIRECTIONS: { type: PortfolioType; label: string }[] = [
-  { type: "architecture", label: "Архитектура" },
+const DIRECTIONS: { type: PortfolioType; label: string; featuredId?: number }[] = [
+  { type: "architecture", label: "Архитектура", featuredId: 9 },
   { type: "interior", label: "Интерьеры" },
   { type: "landscape", label: "Ландшафт" },
 ]
@@ -11,7 +11,9 @@ const DIRECTIONS: { type: PortfolioType; label: string }[] = [
 export function PortfolioTeaser() {
   const featured = DIRECTIONS.map((dir) => ({
     dir,
-    project: portfolioProjects.find((p) => p.type === dir.type),
+    project:
+      (dir.featuredId != null ? portfolioProjects.find((p) => p.id === dir.featuredId) : undefined) ??
+      portfolioProjects.find((p) => p.type === dir.type),
   })).filter((i) => Boolean(i.project))
 
   return (
