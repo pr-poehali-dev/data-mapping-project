@@ -29,7 +29,7 @@ export const portfolioProjects: PortfolioProject[] = [
     type: "landscape",
     category: "Ландшафтный дизайн",
     location: "Екатеринбург",
-    year: "2026",
+    year: "2025",
     area: "10 соток",
     duration: "2-3 месяца",
     image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/5f09b24f-caf4-4151-a516-b784f10a1d4a.jpg",

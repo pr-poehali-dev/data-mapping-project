@@ -29,7 +29,7 @@ const data: DirectionData = {
     {
       title: "Участок «Орёл», КП «Заповедник»",
       location: "Екатеринбург",
-      year: "2026",
+      year: "2025",
       image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/5f09b24f-caf4-4151-a516-b784f10a1d4a.jpg",
       gallery: [
         "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/5f09b24f-caf4-4151-a516-b784f10a1d4a.jpg",
