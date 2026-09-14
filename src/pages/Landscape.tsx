@@ -26,6 +26,19 @@ const data: DirectionData = {
     { name: "Авторский надзор", price: "от 15 000 ₽/выезд" },
   ],
   works: [
+    {
+      title: "Участок «Орёл», КП «Заповедник»",
+      location: "Екатеринбург",
+      year: "2026",
+      image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/5f09b24f-caf4-4151-a516-b784f10a1d4a.jpg",
+      gallery: [
+        "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/5f09b24f-caf4-4151-a516-b784f10a1d4a.jpg",
+        "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/872820b1-16ca-47bf-af52-bfb324b8dd51.jpg",
+        "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6c6f4fe8-eb27-4751-acc4-953e21a93a39.jpg",
+        "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/3d396431-8051-4936-a059-4326695613db.jpg",
+        "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/a4380c12-73e3-4ea8-bf61-d955a2abfbe9.jpg",
+      ],
+    },
     { title: "Зона барбекю, КП «Заповедник»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/fd9ca075-372b-428b-b2fa-9515bf77a9dc.png" },
     { title: "Лаунж-терраса, КП «Заповедник»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/563124be-3054-4b90-b011-9cc25775b01c.png" },
     { title: "Многоуровневый участок, КП «Заповедник»", location: "Екатеринбург", year: "2024", image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/2ece1b63-cb43-401a-98d1-b5b4029583e5.png" },

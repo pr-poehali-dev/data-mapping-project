@@ -24,6 +24,27 @@ export const portfolioFilters: { id: PortfolioType | "all"; label: string }[] = 
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    id: 13,
+    title: "Участок в КП «Заповедник», «Орёл»",
+    type: "landscape",
+    category: "Ландшафтный дизайн",
+    location: "Екатеринбург",
+    year: "2026",
+    area: "10 соток",
+    duration: "8 месяцев",
+    image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/5f09b24f-caf4-4151-a516-b784f10a1d4a.jpg",
+    gallery: [
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/5f09b24f-caf4-4151-a516-b784f10a1d4a.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/872820b1-16ca-47bf-af52-bfb324b8dd51.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6c6f4fe8-eb27-4751-acc4-953e21a93a39.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/3d396431-8051-4936-a059-4326695613db.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/a4380c12-73e3-4ea8-bf61-d955a2abfbe9.jpg",
+    ],
+    description:
+      "Ландшафтный проект участка «Орёл» в КП «Заповедник» среди высоких сосен. Центр композиции — гостевой павильон-спа с панорамным остеклением, деревянной террасой из ДПК и бассейном с шезлонгами. Вдоль дома — миксбордеры из гортензий, лилий, лаванды, хост и декоративных злаков, дорожки из крупноформатной плиты с галечной отсыпкой и брусчаткой. Отдельная зона барбекю у террасы дома, лаунж-площадка с шезлонгами, детский игровой домик из дерева, ровный партерный газон и хвойные акценты — туи, голубые ели, сосны. Вечернее освещение: болларды вдоль дорожек и светящиеся шары в посадках.",
+    scope: ["Концепция участка", "Зонирование", "Дендроплан", "Дорожки и мощение", "Ландшафтное освещение", "3D-визуализация"],
+  },
+  {
     id: 12,
     title: "Одноэтажный дом 240 м² с верандой и гаражом",
     type: "architecture",
