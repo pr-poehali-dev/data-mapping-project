@@ -9,48 +9,59 @@ export function Hero() {
 
   const [position, setPosition] = useState(50)
   const [viewportWidth, setViewportWidth] = useState(0)
+  const [mobileWidth, setMobileWidth] = useState(0)
   const draggingRef = useRef(false)
   const compareRef = useRef<HTMLDivElement>(null)
 
-  const updateFromClientX = useCallback((clientX: number) => {
-    const el = compareRef.current || heroRef.current
-    if (!el) return
-    const rect = el.getBoundingClientRect()
-    const pct = ((clientX - rect.left) / rect.width) * 100
-    setPosition(Math.max(0, Math.min(100, pct)))
+  const getActiveEl = useCallback(() => {
+    const mobile = compareRef.current
+    if (mobile && mobile.offsetParent !== null && mobile.offsetWidth > 0) return mobile
+    return heroRef.current
   }, [])
 
+  const updateFromClientX = useCallback(
+    (clientX: number) => {
+      const el = getActiveEl()
+      if (!el) return
+      const rect = el.getBoundingClientRect()
+      if (rect.width === 0) return
+      const pct = ((clientX - rect.left) / rect.width) * 100
+      setPosition(Math.max(0, Math.min(100, pct)))
+    },
+    [getActiveEl],
+  )
+
   useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      if (draggingRef.current) updateFromClientX(e.clientX)
-    }
-    const onTouchMove = (e: TouchEvent) => {
-      if (draggingRef.current && e.touches[0]) {
-        e.preventDefault()
-        updateFromClientX(e.touches[0].clientX)
-      }
+    const onMove = (e: PointerEvent) => {
+      if (!draggingRef.current) return
+      e.preventDefault()
+      updateFromClientX(e.clientX)
     }
     const stop = () => {
       draggingRef.current = false
     }
     const onResize = () => {
-      const el = compareRef.current || heroRef.current
-      if (el) setViewportWidth(el.offsetWidth)
+      if (heroRef.current) setViewportWidth(heroRef.current.offsetWidth)
+      if (compareRef.current) setMobileWidth(compareRef.current.offsetWidth)
     }
     onResize()
-    window.addEventListener("mousemove", onMove)
-    window.addEventListener("mouseup", stop)
-    window.addEventListener("touchmove", onTouchMove, { passive: false })
-    window.addEventListener("touchend", stop)
+    window.addEventListener("pointermove", onMove, { passive: false })
+    window.addEventListener("pointerup", stop)
+    window.addEventListener("pointercancel", stop)
     window.addEventListener("resize", onResize)
     return () => {
-      window.removeEventListener("mousemove", onMove)
-      window.removeEventListener("mouseup", stop)
-      window.removeEventListener("touchmove", onTouchMove)
-      window.removeEventListener("touchend", stop)
+      window.removeEventListener("pointermove", onMove)
+      window.removeEventListener("pointerup", stop)
+      window.removeEventListener("pointercancel", stop)
       window.removeEventListener("resize", onResize)
     }
   }, [updateFromClientX])
+
+  const startDrag = (e: React.PointerEvent) => {
+    e.preventDefault()
+    draggingRef.current = true
+    updateFromClientX(e.clientX)
+  }
 
   return (
     <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden select-none">
@@ -74,6 +85,12 @@ export function Hero() {
         <div className="absolute inset-0 bg-black/45 md:bg-black/45" />
       </div>
 
+      {/* Desktop drag area */}
+      <div
+        className="hidden md:block absolute inset-0 z-10 cursor-ew-resize touch-none"
+        onPointerDown={startDrag}
+      />
+
       {/* Labels */}
       <span className="hidden md:block absolute bottom-10 left-12 z-20 rounded-full bg-black/60 text-white text-xs tracking-widest uppercase px-4 py-1.5 pointer-events-none">
         Проект
@@ -84,18 +101,11 @@ export function Hero() {
 
       {/* Drag handle */}
       <div
-        className="hidden md:block absolute top-0 bottom-0 w-0.5 bg-white/80 z-20 cursor-ew-resize"
+        className="hidden md:block absolute top-0 bottom-0 w-10 z-20 cursor-ew-resize touch-none"
         style={{ left: `${position}%`, transform: "translateX(-50%)" }}
-        onMouseDown={(e) => {
-          e.preventDefault()
-          draggingRef.current = true
-          updateFromClientX(e.clientX)
-        }}
-        onTouchStart={(e) => {
-          draggingRef.current = true
-          if (e.touches[0]) updateFromClientX(e.touches[0].clientX)
-        }}
+        onPointerDown={startDrag}
       >
+        <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-0.5 bg-white/80" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-foreground">
             <path d="M9 7L5 12l4 5M15 7l4 5-4 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -104,7 +114,7 @@ export function Hero() {
       </div>
 
       {/* Title */}
-      <div className="container mx-auto px-4 md:px-12 pt-20 pb-10 md:pt-20 md:pb-0 relative z-10 pointer-events-none">
+      <div className="container mx-auto px-4 md:px-12 pt-20 pb-10 md:pt-20 md:pb-0 relative z-20 pointer-events-none">
         <div className="flex flex-col items-center">
           <p className="text-[10px] sm:text-xs tracking-[0.45em] uppercase text-center text-white/70 mb-4 md:mb-6">
             Архитектурное бюро
@@ -126,16 +136,8 @@ export function Hero() {
           {/* Mobile compare card */}
           <div
             ref={compareRef}
-            className="md:hidden pointer-events-auto relative mt-5 w-screen -mx-4 aspect-[3/4] max-h-[52vh] overflow-hidden shadow-2xl touch-none"
-            onMouseDown={(e) => {
-              e.preventDefault()
-              draggingRef.current = true
-              updateFromClientX(e.clientX)
-            }}
-            onTouchStart={(e) => {
-              draggingRef.current = true
-              if (e.touches[0]) updateFromClientX(e.touches[0].clientX)
-            }}
+            className="md:hidden pointer-events-auto relative mt-5 w-screen -mx-4 aspect-[3/4] max-h-[52vh] overflow-hidden shadow-2xl touch-none cursor-ew-resize"
+            onPointerDown={startDrag}
           >
             <img
               src={REAL_IMAGE}
@@ -148,7 +150,7 @@ export function Hero() {
                 src={RENDER_IMAGE}
                 alt="Проект — визуализация"
                 className="absolute inset-0 h-full object-cover bg-black max-w-none"
-                style={{ width: viewportWidth || "100%" }}
+                style={{ width: mobileWidth || "100%" }}
                 draggable={false}
               />
             </div>
