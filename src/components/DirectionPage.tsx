@@ -148,7 +148,7 @@ export function DirectionPage({ data }: { data: DirectionData }) {
               to={data.portfolioType ? `/portfolio?type=${data.portfolioType}` : "/portfolio"}
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
             >
-              Все реализованные проекты
+              Все наши проекты
               <Icon
                 name="ArrowUpRight"
                 size={16}

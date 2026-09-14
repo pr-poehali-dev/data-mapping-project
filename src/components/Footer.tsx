@@ -23,11 +23,6 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/portfolio" className="hover:text-foreground transition-colors">
-                  Реализованные проекты
-                </a>
-              </li>
-              <li>
                 <a href="/pricing" className="hover:text-foreground transition-colors">
                   Цены
                 </a>

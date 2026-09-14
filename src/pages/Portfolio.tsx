@@ -31,7 +31,7 @@ export default function Portfolio() {
         <div className="container mx-auto px-6 md:px-12">
           <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Портфолио</p>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.05] tracking-tight mb-8 text-balance">
-            Реализованные <HighlightedText>проекты</HighlightedText>
+            Наши <HighlightedText>проекты</HighlightedText>
           </h1>
           <p className="text-muted-foreground text-lg leading-relaxed max-w-xl">
             Работы по трём направлениям — архитектура, интерьеры и ландшафт. Нажмите на проект, чтобы узнать детали.
