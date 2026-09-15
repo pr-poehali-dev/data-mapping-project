@@ -6,6 +6,8 @@ import { HighlightedText } from "./HighlightedText"
 import { Lightbox } from "./Lightbox"
 import { InteriorPricing } from "./InteriorPricing"
 import { SectionPricing } from "./SectionPricing"
+import { PortfolioGrid } from "./PortfolioGrid"
+import { portfolioProjects } from "../data/portfolio"
 import Icon from "./ui/icon"
 
 export interface DirectionData {
@@ -25,6 +27,10 @@ export interface DirectionData {
 export function DirectionPage({ data }: { data: DirectionData }) {
   const [lightboxImages, setLightboxImages] = useState<string[]>([])
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+
+  const sectionProjects = data.portfolioType
+    ? portfolioProjects.filter((p) => p.type === data.portfolioType)
+    : []
 
   const openWork = (w: DirectionData["works"][number]) => {
     const imgs = w.gallery && w.gallery.length > 0 ? w.gallery : [w.image]
@@ -156,40 +162,45 @@ export function DirectionPage({ data }: { data: DirectionData }) {
               />
             </Link>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-            {data.works.map((w) => (
-              <article key={w.title} className="group">
-                <div
-                  className="relative overflow-hidden aspect-[4/3] mb-6 cursor-zoom-in"
-                  onClick={() => openWork(w)}
-                >
-                  <img loading="lazy"
-                    src={w.image}
-                    alt={w.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-foreground/0 group-hover:bg-foreground/20 transition-colors">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-background/90 backdrop-blur rounded-full p-3">
-                      <Icon name="Expand" size={20} />
-                    </span>
+          {sectionProjects.length > 0 ? (
+            <PortfolioGrid projects={sectionProjects} />
+          ) : (
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+              {data.works.map((w) => (
+                <article key={w.title} className="group">
+                  <div
+                    className="relative overflow-hidden aspect-[4/3] mb-6 cursor-zoom-in"
+                    onClick={() => openWork(w)}
+                  >
+                    <img
+                      loading="lazy"
+                      src={w.image}
+                      alt={w.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-foreground/0 group-hover:bg-foreground/20 transition-colors">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-background/90 backdrop-blur rounded-full p-3">
+                        <Icon name="Expand" size={20} />
+                      </span>
+                    </div>
+                    {w.gallery && w.gallery.length > 1 && (
+                      <span className="absolute bottom-3 right-3 flex items-center gap-1.5 bg-background/90 backdrop-blur px-2.5 py-1 text-xs">
+                        <Icon name="Images" size={13} />
+                        {w.gallery.length}
+                      </span>
+                    )}
                   </div>
-                  {w.gallery && w.gallery.length > 1 && (
-                    <span className="absolute bottom-3 right-3 flex items-center gap-1.5 bg-background/90 backdrop-blur px-2.5 py-1 text-xs">
-                      <Icon name="Images" size={13} />
-                      {w.gallery.length}
-                    </span>
-                  )}
-                </div>
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-medium mb-2">{w.title}</h3>
-                    <p className="text-muted-foreground text-sm">{w.location}</p>
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="text-xl font-medium mb-2">{w.title}</h3>
+                      <p className="text-muted-foreground text-sm">{w.location}</p>
+                    </div>
+                    <span className="text-muted-foreground/60 text-sm">{w.year}</span>
                   </div>
-                  <span className="text-muted-foreground/60 text-sm">{w.year}</span>
-                </div>
-              </article>
-            ))}
-          </div>
+                </article>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

@@ -78,7 +78,7 @@ export default function Project() {
               touchStartX.current = null
             }}
           >
-            <img src={images[current]} alt={project.title} className="w-full h-full object-cover" />
+            <img src={images[current]} alt={project.title} className="w-full h-full object-contain" />
 
             <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors" />
             <span className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity bg-background/90 backdrop-blur rounded-full p-2.5">
