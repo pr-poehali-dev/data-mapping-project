@@ -230,16 +230,6 @@ export function DirectionPage({ data }: { data: DirectionData }) {
             <QuizButton label="Рассчитать стоимость" className="px-8 py-4" />
           </div>
 
-          <div className="mt-14 max-w-2xl mx-auto text-left">
-            <p className="text-foreground/60 text-sm tracking-[0.3em] uppercase mb-5 text-center">Анкета для расчёта</p>
-            <iframe
-              src="https://app.diaforms.ru/f/unrff3q6drrw?embed=1"
-              title="Анкета для расчёта стоимости"
-              loading="lazy"
-              className="w-full border-0 bg-background"
-              style={{ minHeight: "640px" }}
-            />
-          </div>
         </div>
       </section>
 
