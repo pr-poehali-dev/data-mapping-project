@@ -24,6 +24,27 @@ export const portfolioFilters: { id: PortfolioType | "all"; label: string }[] = 
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    id: 14,
+    title: "Квартира-студия 30 м² в старом фонде",
+    type: "interior",
+    category: "Дизайн интерьера",
+    location: "Екатеринбург, ул. Бажова",
+    year: "2024",
+    area: "30 м²",
+    duration: "1 месяц",
+    image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/672c9cf1-1f8c-49ea-bbe6-2e594cc53750.jpg",
+    gallery: [
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/672c9cf1-1f8c-49ea-bbe6-2e594cc53750.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/a772f285-90d2-439c-9d28-25d426b7c762.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/5894467c-b00d-43e6-9285-a3bf50545273.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/a181719f-0e9b-4f8a-b7ed-eab3fb9c8d0b.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/8cd25e01-3d44-456e-918f-ea5c8a792a47.jpg",
+    ],
+    description:
+      "Квартира-студия 30 м² для молодого человека в доме старого фонда на улице Бажова. Сдержанный минимализм в серо-голубой гамме: микроцемент на стенах, вертикальные рейки как акцент, светлый дуб на полу. Пространство разделено на зоны без перегородок — спальное место с мягким изголовьем и подсветкой, компактный рабочий стол, диван-гостиная и ТВ-зона с парящей тумбой и скрытой подсветкой. Встроенный шкаф с открытыми нишами-полками решает вопрос хранения, скрытые двери и трековые светильники добавляют лаконичности. Проект разработан за 1 месяц.",
+    scope: ["Планировочные решения", "Дизайн-концепция", "3D-визуализация", "Рабочая документация", "Подбор материалов и мебели"],
+  },
+  {
     id: 13,
     title: "Участок в КП «Заповедник», «Орёл»",
     type: "landscape",
