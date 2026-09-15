@@ -24,6 +24,27 @@ export const portfolioFilters: { id: PortfolioType | "all"; label: string }[] = 
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    id: 15,
+    title: "Квартира 89 м² для молодой семьи",
+    type: "interior",
+    category: "Дизайн интерьера",
+    location: "Берёзовский",
+    year: "2023",
+    area: "89 м²",
+    duration: "4 месяца",
+    image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/41c2319a-9a41-4d7a-8a6a-e111960961da.jpg",
+    gallery: [
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/41c2319a-9a41-4d7a-8a6a-e111960961da.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/670a75d0-d4c4-4b7b-ad58-ff6e7a14761d.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/162407f1-bcc1-4d7d-a3c4-2d340bc7bd74.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/f81e9500-3886-4d57-a3e6-a5cf5225588b.jpg",
+      "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/bucket/6bbe891b-9dbb-4c50-9163-94f1d0731e8b.jpg",
+    ],
+    description:
+      "Квартира 89 м² в Берёзовском для молодой семьи с двумя активными мальчиками. Тёплая бежево-древесная гамма, дуб, декоративная штукатурка и мягкие округлые формы — материалы устойчивы к активной детской жизни и при этом выглядят дорого. Единое пространство кухни-гостиной с обеденной зоной у окна и барной стойкой-разделителем, мягкий модульный диван без острых углов, ТВ-зона на фоне фактурной штукатурки и дерева. Стеновые панели с интегрированной подсветкой, скрытые двери, трековое и линейное освещение создают несколько световых сценариев. Много закрытого хранения: шкафы до потолка в прихожей и гостиной, открытые ниши для книг и декора. Полный проект выполнен за 4 месяца.",
+    scope: ["Планировочные решения", "Дизайн-концепция", "3D-визуализация", "Рабочая документация", "Подбор материалов и мебели", "Авторский надзор"],
+  },
+  {
     id: 14,
     title: "Квартира-студия 30 м² в старом фонде",
     type: "interior",
