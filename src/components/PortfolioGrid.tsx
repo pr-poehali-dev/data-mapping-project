@@ -17,14 +17,20 @@ export function PortfolioGrid({ projects }: { projects: PortfolioProject[] }) {
             <span className="absolute top-4 left-4 bg-background/90 backdrop-blur px-3 py-1 text-xs tracking-wide">
               {project.category}
             </span>
-            {project.gallery && project.gallery.length > 1 && (
+            {project.panoramaUrl && (
+              <span className="absolute top-4 right-4 flex items-center gap-1.5 bg-background/90 backdrop-blur px-2.5 py-1 text-xs tracking-wide">
+                <Icon name="Rotate3d" size={13} fallback="Compass" />
+                360°
+              </span>
+            )}
+            {!project.panoramaUrl && project.gallery && project.gallery.length > 1 && (
               <span className="absolute top-4 right-4 flex items-center gap-1.5 bg-background/90 backdrop-blur px-2.5 py-1 text-xs tracking-wide">
                 <Icon name="Images" size={13} />
                 {project.gallery.length}
               </span>
             )}
             <span className="absolute bottom-4 right-4 flex items-center gap-1.5 bg-background/90 backdrop-blur px-3 py-1.5 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Смотреть проект
+              {project.panoramaUrl ? "Смотреть 360° обзор" : "Смотреть проект"}
               <Icon name="ArrowUpRight" size={13} />
             </span>
           </div>
@@ -32,7 +38,8 @@ export function PortfolioGrid({ projects }: { projects: PortfolioProject[] }) {
             <div>
               <h3 className="text-lg font-medium mb-1 group-hover:underline underline-offset-4">{project.title}</h3>
               <p className="text-muted-foreground text-sm">
-                {project.location} · {project.area}
+                {project.location}
+                {project.area && project.area !== "—" ? ` · ${project.area}` : ""}
               </p>
             </div>
             <span className="text-muted-foreground/60 text-sm">{project.year}</span>

@@ -11,6 +11,7 @@ export interface PortfolioProject {
   duration: string
   image: string
   gallery?: string[]
+  panoramaUrl?: string
   description: string
   scope: string[]
 }
@@ -23,6 +24,21 @@ export const portfolioFilters: { id: PortfolioType | "all"; label: string }[] = 
 ]
 
 export const portfolioProjects: PortfolioProject[] = [
+  {
+    id: 16,
+    title: "Квартира в ЖК «Макаровский»",
+    type: "interior",
+    category: "Дизайн интерьера",
+    location: "Екатеринбург, ЖК «Макаровский»",
+    year: "2025",
+    area: "—",
+    duration: "—",
+    image: "https://cdn.poehali.dev/projects/47a591b7-43be-4339-9ff8-476e1ece7feb/files/53d263bb-89e5-481c-afa8-79e25519a012.jpg",
+    panoramaUrl: "https://kuula.co/share/collection/7YgZh?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1",
+    description:
+      "Проект квартиры в ЖК «Макаровский» в Екатеринбурге. Для этого проекта мы подготовили интерактивный 360° обзор — вы можете самостоятельно осмотреть каждое помещение, перемещаться между комнатами и оценить пропорции, освещение и материалы так, будто находитесь внутри.",
+    scope: ["Планировочные решения", "Дизайн-концепция", "3D-визуализация", "360° панорамный обзор", "Подбор материалов"],
+  },
   {
     id: 15,
     title: "Квартира 89 м² для молодой семьи",

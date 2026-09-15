@@ -59,11 +59,30 @@ export default function Project() {
             {project.title}
           </h1>
           <p className="text-muted-foreground text-lg">
-            {project.location} · {project.area} · {project.year}
+            {[project.location, project.area, project.year].filter((v) => v && v !== "—").join(" · ")}
           </p>
         </div>
       </section>
 
+      {project.panoramaUrl ? (
+        <section className="pb-16">
+          <div className="container mx-auto px-6 md:px-12">
+            <div className="flex items-center gap-2 mb-4 text-muted-foreground text-sm">
+              <Icon name="Rotate3d" size={18} fallback="Compass" />
+              Интерактивный обзор 360° — вращайте мышью и переходите между комнатами
+            </div>
+            <iframe
+              src={project.panoramaUrl}
+              title={`${project.title} — 360° обзор`}
+              className="w-full border border-border bg-muted"
+              style={{ height: "min(78vh, 700px)" }}
+              allow="fullscreen; accelerometer; gyroscope; magnetometer; xr-spatial-tracking"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+        </section>
+      ) : (
       <section className="pb-16">
         <div className="container mx-auto px-6 md:px-12">
           <div
@@ -132,6 +151,7 @@ export default function Project() {
           )}
         </div>
       </section>
+      )}
 
       <section className="pb-24 md:pb-32">
         <div className="container mx-auto px-6 md:px-12">
@@ -155,14 +175,18 @@ export default function Project() {
                 <p className="text-muted-foreground text-xs uppercase tracking-wide mb-1">Локация</p>
                 <p className="font-medium text-lg">{project.location}</p>
               </div>
-              <div>
-                <p className="text-muted-foreground text-xs uppercase tracking-wide mb-1">Площадь</p>
-                <p className="font-medium text-lg">{project.area}</p>
-              </div>
-              <div>
-                <p className="text-muted-foreground text-xs uppercase tracking-wide mb-1">Сроки</p>
-                <p className="font-medium text-lg">{project.duration}</p>
-              </div>
+              {project.area && project.area !== "—" && (
+                <div>
+                  <p className="text-muted-foreground text-xs uppercase tracking-wide mb-1">Площадь</p>
+                  <p className="font-medium text-lg">{project.area}</p>
+                </div>
+              )}
+              {project.duration && project.duration !== "—" && (
+                <div>
+                  <p className="text-muted-foreground text-xs uppercase tracking-wide mb-1">Сроки</p>
+                  <p className="font-medium text-lg">{project.duration}</p>
+                </div>
+              )}
               <div>
                 <p className="text-muted-foreground text-xs uppercase tracking-wide mb-1">Год</p>
                 <p className="font-medium text-lg">{project.year}</p>
