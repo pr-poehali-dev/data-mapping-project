@@ -1,4 +1,5 @@
 import Icon from "./ui/icon"
+import { QuizButton } from "./QuizButton"
 
 const interiorTiers = [
   {
@@ -164,6 +165,7 @@ export function InteriorPricing() {
                   Оставить заявку
                   <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
                 </a>
+                <QuizButton className="w-full" label="Рассчитать стоимость" />
               </div>
             </div>
           </div>
@@ -210,6 +212,7 @@ export function InteriorPricing() {
                 Оставить заявку
                 <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
               </a>
+              <QuizButton className="w-full mt-3" label="Рассчитать стоимость" />
             </div>
           ))}
         </div>

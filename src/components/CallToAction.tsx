@@ -98,6 +98,18 @@ export function CallToAction() {
             </button>
           </form>
 
+          <div className="mt-16 max-w-2xl mx-auto">
+            <p className="text-foreground/60 text-sm tracking-[0.3em] uppercase mb-3">Анкета</p>
+            <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-6">Рассчитать стоимость проекта</h3>
+            <iframe
+              src="https://app.diaforms.ru/f/unrff3q6drrw?embed=1"
+              title="Анкета для расчёта стоимости"
+              loading="lazy"
+              className="w-full border-0 bg-background"
+              style={{ minHeight: "640px" }}
+            />
+          </div>
+
           <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
             <a
               href="tel:+79220299901"

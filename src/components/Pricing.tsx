@@ -4,6 +4,7 @@ import { InteriorPricing } from "./InteriorPricing"
 import { pricingSections } from "@/data/pricing"
 import { portfolioProjects } from "@/data/portfolio"
 import Icon from "./ui/icon"
+import { QuizButton } from "./QuizButton"
 
 const sectionCovers: Record<string, string | undefined> = {
   architecture: portfolioProjects.find((p) => p.type === "architecture")?.image,
@@ -97,6 +98,7 @@ export function Pricing() {
                   Оставить заявку
                   <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
                 </a>
+                <QuizButton className="w-full" label="Рассчитать стоимость" />
                 <p className="text-xs text-muted-foreground leading-relaxed mt-2">{section.note}</p>
               </div>
             </div>
@@ -208,6 +210,12 @@ export function Pricing() {
                     Получить точный расчёт
                     <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
                   </a>
+                  <div>
+                    <QuizButton
+                      label="Заполнить анкету"
+                      className="px-7 py-4 border-foreground/40 text-foreground hover:bg-foreground hover:text-background"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

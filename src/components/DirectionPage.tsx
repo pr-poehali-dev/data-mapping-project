@@ -8,6 +8,7 @@ import { InteriorPricing } from "./InteriorPricing"
 import { SectionPricing } from "./SectionPricing"
 import { PortfolioGrid } from "./PortfolioGrid"
 import { portfolioProjects } from "../data/portfolio"
+import { QuizButton } from "./QuizButton"
 import Icon from "./ui/icon"
 
 export interface DirectionData {
@@ -64,13 +65,16 @@ export function DirectionPage({ data }: { data: DirectionData }) {
                 {data.titleTail ? ` ${data.titleTail}` : ""}
               </h1>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-10">{data.intro}</p>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 text-sm tracking-wide hover:bg-foreground/90 transition-colors duration-300 group"
-              >
-                Обсудить проект
-                <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 text-sm tracking-wide hover:bg-foreground/90 transition-colors duration-300 group"
+                >
+                  Обсудить проект
+                  <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
+                </a>
+                <QuizButton label="Рассчитать стоимость" className="px-8 py-4" />
+              </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden">
               <img loading="lazy" src={data.heroImage} alt={data.title} className="w-full h-full object-cover" />
@@ -215,13 +219,27 @@ export function DirectionPage({ data }: { data: DirectionData }) {
           <p className="text-foreground/70 text-lg leading-relaxed mb-12 max-w-xl mx-auto">
             Оставьте заявку — проведём бесплатную консультацию и рассчитаем стоимость под вашу задачу.
           </p>
-          <a
-            href="mailto:d@p-shalamova.ru"
-            className="inline-flex items-center justify-center gap-3 bg-foreground text-background px-8 py-4 text-sm tracking-wide hover:bg-foreground/90 transition-colors duration-300 group"
-          >
-            Получить консультацию
-            <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
-          </a>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <a
+              href="mailto:d@p-shalamova.ru"
+              className="inline-flex items-center justify-center gap-3 bg-foreground text-background px-8 py-4 text-sm tracking-wide hover:bg-foreground/90 transition-colors duration-300 group"
+            >
+              Получить консультацию
+              <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
+            </a>
+            <QuizButton label="Рассчитать стоимость" className="px-8 py-4" />
+          </div>
+
+          <div className="mt-14 max-w-2xl mx-auto text-left">
+            <p className="text-foreground/60 text-sm tracking-[0.3em] uppercase mb-5 text-center">Анкета для расчёта</p>
+            <iframe
+              src="https://app.diaforms.ru/f/unrff3q6drrw?embed=1"
+              title="Анкета для расчёта стоимости"
+              loading="lazy"
+              className="w-full border-0 bg-background"
+              style={{ minHeight: "640px" }}
+            />
+          </div>
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import { pricingSections } from "@/data/pricing"
 import { portfolioProjects } from "@/data/portfolio"
 import Icon from "./ui/icon"
+import { QuizButton } from "./QuizButton"
 
 export function SectionPricing({ id }: { id: "architecture" | "landscape" }) {
   const section = pricingSections.find((s) => s.id === id)
@@ -45,6 +46,7 @@ export function SectionPricing({ id }: { id: "architecture" | "landscape" }) {
             Оставить заявку
             <Icon name="ArrowRight" size={16} className="transition-transform group-hover:translate-x-1" />
           </a>
+          <QuizButton className="w-full" label="Рассчитать стоимость" />
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from "react"
+import { QuizButton } from "./QuizButton"
 
 const RENDER_IMAGE = "/hero-before.webp"
 const REAL_IMAGE = "/hero-after.webp"
@@ -172,12 +173,18 @@ export function Hero() {
             </span>
           </div>
 
-          <a
-            href="#contact"
-            className="pointer-events-auto mt-6 md:mt-8 inline-flex items-center gap-3 rounded-full bg-white text-black px-8 py-3.5 text-sm tracking-wide hover:bg-orange-200 transition-colors duration-300"
-          >
-            Оставить заявку
-          </a>
+          <div className="pointer-events-auto mt-6 md:mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-3 rounded-full bg-white text-black px-8 py-3.5 text-sm tracking-wide hover:bg-orange-200 transition-colors duration-300"
+            >
+              Оставить заявку
+            </a>
+            <QuizButton
+              label="Рассчитать стоимость"
+              className="rounded-full border-white text-white px-8 py-3.5 hover:bg-white hover:text-black"
+            />
+          </div>
         </div>
       </div>
     </section>
